@@ -7,9 +7,19 @@ My PLAN:
     symbols.
     numbers.
     unicode?
-4. histograms.
-    
+    split files test-case.
 
+4. summaries.
+
+5. plan.
+    all lowercase.
+    ignore numbers and other chars.
+    do not ignore 's.
+    reset n-grams on full stops or newlines?
+    on app:
+        if dict-badword -> symbols
+        if fullstop -> capital
+        if dict-name -> capital
 
 
 
