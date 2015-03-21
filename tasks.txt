@@ -63,3 +63,26 @@ Tips and hints
 Think about starting simply, using your sampled data - what would be your first choice word prediction if you only knew the frequency of each individual word? 
 How would you build the model if you were predicting using only one previous word? 
 
+
+
+
+
+MILESTONE
+
+Please upload the URL of an R Pubs document describing your exploratory analysis (http://rpubs.com/, be sure that the url that you submit is http and not https). 
+
+Does the link lead to an HTML page describing the exploratory analysis of the training data set?
+1: yes, the link does not lead to a document describing the exploratory analysis
+
+Has the data scientist done basic summaries of the three files?
+    Word counts,
+    line counts and
+    basic data tables?
+1: yes, the data scientist has evaluated basic summaries of the data such as word and line counts
+
+Has the data scientist made basic plots,
+    such as histograms to illustrate features of the data?
+1: yes, the data scientist has made basic plots, such as histograms to illustrate features of the data
+
+Was the report written in a brief, concise style, in a way that a non-data scientist manager could appreciate?
+3: yes, the report could be understood by a non data scientist and is brief and concise
