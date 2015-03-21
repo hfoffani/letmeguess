@@ -1,4 +1,4 @@
 #!/bin/sh
 
-# 70% to train
-awk '{ if (NR % 10 < 7) print $0}' $1
+# 50% to train
+awk '{ if (NR % 10 < 5) print $0}' $1
