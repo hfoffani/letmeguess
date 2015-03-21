@@ -1,3 +1,21 @@
+My PLAN:
+
+1. raw files.
+    words in lower.
+    count lines, words per file.
+    unique words.
+    symbols.
+    numbers.
+    unicode?
+4. histograms.
+    
+
+
+
+
+
+
+
 TASK 0
 
 Tasks to accomplish

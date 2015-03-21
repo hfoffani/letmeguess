@@ -1,0 +1,15 @@
+---
+title: "Text Prediction"
+author: "herchu"
+date: "21 de marzo de 2015"
+output: html_document
+---
+
+### Introduction
+
+### Describe the data
+
+### Describe the app
+
+### Describe the algorithm
+
