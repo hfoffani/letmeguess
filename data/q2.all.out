@@ -2,42 +2,50 @@ QUIZ 2
 
 
 Q1
-n3 case of beer 20
 n4 a case of beer 15
+n3 case of beer 20
+n2 of beer 600
 
 
 Q2
-n3 mean the world 150
 n4 would mean the world 109
+n3 mean the world 150
+n2 the best 20340
+n2 the world 17293
 
 
 Q3
-n3 me the happeiest 26
 n4 make me the happiest 15
+n3 me the happeiest 26
+n2 the happiest 237
 
 
 Q4
 n3 but the crowd 16
+n2 the crowd 1693
+
 
 
 Q5
+n4 date at the grocery 1
 n3 at the beach 258
 n3 at the mall 220
    at the movies 77
    at the grocery 128
-n4 date at the grocery 1
+n2 the beach 1701
+   the mall 744
 
 
 Q6
+n4 be on my way 18
 n3 on my way 1186
 n3 on my phone 413
-n4 be on my way 18
-
+n2 my way 2307
 
 
 Q7
-n3 quite some time 177
 n4 in quite sime time 20
+n3 quite some time 177
 
 
 Q8
@@ -45,13 +53,20 @@ freq.3.blogs.txt:   3 his little fingers
 freq.3.blogs.txt:   2 his little eyes
 freq.3.blogs.txt:   1 his little ears
 
+n2 little eyes 17
+   littel fingers 18
+
 
 Q9
 n3 during the bad 3
 n3 during the hard 3
+n2 the bad 1133
+n2 the hard 905
 
 
 Q10
 n3 must be insane 4
 n3 must be asleep 2
+n2 be asleep 72
+   be insane 49
 

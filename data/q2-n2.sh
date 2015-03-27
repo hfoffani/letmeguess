@@ -1,88 +1,88 @@
 
-N=3
+N=2
 
 echo QUIZ 2
 echo
 echo
 echo Q1
-grep "case of cheese" freq.$N.*.txt
-grep "case of soda" freq.$N.*.txt
-grep "case of pretzels" freq.$N.*.txt
-grep "case of beer" freq.$N.*.txt
+grep "of cheese" freq.$N.*.txt
+grep "of soda" freq.$N.*.txt
+grep "of pretzels" freq.$N.*.txt
+grep "of beer" freq.$N.*.txt
 
 
 echo
 echo
 echo Q2
-grep "mean the most" freq.$N.*.txt
-grep "mean the best" freq.$N.*.txt
-grep "mean the universe" freq.$N.*.txt
-grep "mean the world" freq.$N.*.txt
+grep "the most" freq.$N.*.txt
+grep "the best" freq.$N.*.txt
+grep "the universe" freq.$N.*.txt
+grep "the world" freq.$N.*.txt
 
 
 echo
 echo
 echo Q3
-grep "me the saddest" freq.$N.*.txt
-grep "me the smelliest" freq.$N.*.txt
-grep "me the happiest" freq.$N.*.txt
-grep "me the bluest" freq.$N.*.txt
+grep "the saddest" freq.$N.*.txt
+grep "the smelliest" freq.$N.*.txt
+grep "the happiest" freq.$N.*.txt
+grep "the bluest" freq.$N.*.txt
 
 
 echo
 echo
 echo Q4
-grep "but the crowd" freq.$N.*.txt
-grep "but the referees" freq.$N.*.txt
-grep "but the players" freq.$N.*.txt
-grep "but the defense" freq.$N.*.txt
+grep "the crowd" freq.$N.*.txt
+grep "the referees" freq.$N.*.txt
+grep "the players" freq.$N.*.txt
+grep "the defense" freq.$N.*.txt
 
 
 echo
 echo Q5
-grep "at the mall" freq.$N.*.txt
-grep "at the movies" freq.$N.*.txt
-grep "at the beach" freq.$N.*.txt
-grep "at the grocery" freq.$N.*.txt
+grep "the mall" freq.$N.*.txt
+grep "the movies" freq.$N.*.txt
+grep "the beach" freq.$N.*.txt
+grep "the grocery" freq.$N.*.txt
 
 
 echo
 echo Q6
-grep "on my phone" freq.$N.*.txt
-grep "on my horse" freq.$N.*.txt
-grep "on my motorcycle" freq.$N.*.txt
-grep "on my way" freq.$N.*.txt
+grep "my phone" freq.$N.*.txt
+grep "my horse" freq.$N.*.txt
+grep "my motorcycle" freq.$N.*.txt
+grep "my way" freq.$N.*.txt
 
 
 echo
 echo Q7
-grep "quite some years" freq.$N.*.txt
-grep "quite some thing" freq.$N.*.txt
-grep "quite some time" freq.$N.*.txt
-grep "quite some weeks" freq.$N.*.txt
+grep "some years" freq.$N.*.txt
+grep "some thing" freq.$N.*.txt
+grep "some time" freq.$N.*.txt
+grep "some weeks" freq.$N.*.txt
 
 
 echo
 echo Q8
-grep "his little eyes" freq.$N.*.txt
-grep "his little toes" freq.$N.*.txt
-grep "his little ears" freq.$N.*.txt
-grep "his little fingers" freq.$N.*.txt
+grep "little eyes" freq.$N.*.txt
+grep "little toes" freq.$N.*.txt
+grep "little ears" freq.$N.*.txt
+grep "little fingers" freq.$N.*.txt
 
 
 echo
 echo Q9
-grep "during the sad" freq.$N.*.txt
-grep "during the bad" freq.$N.*.txt
-grep "during the hard" freq.$N.*.txt
-grep "during the worse" freq.$N.*.txt
+grep "the sad" freq.$N.*.txt
+grep "the bad" freq.$N.*.txt
+grep "the hard" freq.$N.*.txt
+grep "the worse" freq.$N.*.txt
 
 
 echo
 echo Q10
-grep "must be asleep" freq.$N.*.txt
-grep "must be insensitive" freq.$N.*.txt
-grep "must be insane" freq.$N.*.txt
-grep "must be callous" freq.$N.*.txt
+grep "be asleep" freq.$N.*.txt
+grep "be insensitive" freq.$N.*.txt
+grep "be insane" freq.$N.*.txt
+grep "be callous" freq.$N.*.txt
 
 
