@@ -2,8 +2,8 @@
 N=2
 F="-f3"
 
-#N=3
-#F="-f2 -f3"
+N=3
+F="-f2 -f3"
 
 #N=4
 #F="-f1 -f2 -f3"
@@ -19,13 +19,16 @@ shift
 for w in $*
 do
     g="$s $w"
-    echo grep $g freq.$N.*.txt
+    grep "$g" freq.$N.*.txt
 done
 echo
 echo
 }
 
-f "a case of"  cheese soda pretzels beer
+#f "a case of"  cheese soda pretzels beer
+#f "Very early observations on the Bills game: Offense still struggling but the"
+f "struggling but the" crowd referees players defense
+
 #f "would mean the"
 #f "make me the"
 #f "date at the"
