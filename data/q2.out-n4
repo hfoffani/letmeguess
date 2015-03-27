@@ -1,0 +1,42 @@
+QUIZ 2
+
+
+Q1
+freq.4.blogs.txt:   1 a case of soda
+freq.4.blogs.txt:   4 a case of beer
+freq.4.news.txt:   5 a case of beer
+freq.4.twitter.txt:   6 a case of beer
+
+
+Q2
+freq.4.twitter.txt:   1 would mean the most
+freq.4.blogs.txt:   1 would mean the world
+freq.4.twitter.txt: 108 would mean the world
+
+
+Q3
+freq.4.blogs.txt:   1 make me the happiest
+freq.4.news.txt:   1 make me the happiest
+freq.4.twitter.txt:  13 make me the happiest
+
+
+Q4
+
+Q5
+freq.4.twitter.txt:   1 date at the grocery
+
+Q6
+freq.4.twitter.txt:   1 be on my phone
+freq.4.blogs.txt:   2 be on my way
+freq.4.twitter.txt:  16 be on my way
+
+Q7
+freq.4.blogs.txt:  12 in quite some time
+freq.4.news.txt:   5 in quite some time
+freq.4.twitter.txt:   3 in quite some time
+
+Q8
+
+Q9
+
+Q10
