@@ -1,6 +1,6 @@
 My PLAN:
 
-1. raw files.
++1. raw files.
     words in lower.
     count lines, words per file.
     unique words.
@@ -12,14 +12,17 @@ My PLAN:
 4. summaries.
 
 5. plan.
+    
     all lowercase.
     ignore numbers and other chars.
     do not ignore 's.
-    reset n-grams on full stops or newlines?
+    don't reset n-grams on full stops or newlines.
     on app:
-        if dict-badword -> symbols
+        if expletives -> symbols
         if fullstop -> capital
-        if dict-name -> capital
+        if Names -> capital
+        via dictionary.
+
 
 
 
@@ -35,18 +38,21 @@ Profanity filtering - removing profanity and other words you do not want to pred
 
 Questions to consider
 
-How should you handle punctuation?
-The data contains lots of times, dates, numbers and currency values. How to handle these? Are they useful for prediction?
-How do you find typos in the data?
-How do you identify garbage, or the wrong language?
-How do you define profanity? How do you ensure you don't remove words you want to include?
-How do you handle capital and lower cases?
-What is the best set of features you might use to predict the next word?
+1 How should you handle punctuation?
+2 The data contains lots of times, dates, numbers and currency values. How to handle these? Are they useful for prediction?
+3 How do you find typos in the data?
+4 How do you identify garbage, or the wrong language?
+5 How do you define profanity? How do you ensure you don't remove words you want to include?
+6 How do you handle capital and lower cases?
+7 What is the best set of features you might use to predict the next word?
 
-
-no-profanity filtering. left up-to the last phase of text-prediction. (ie. replace profanity with "!@%#&!")
-typos. forget.
-low-up cases. all lower. left up-to the last phase. (ie. after a '.' capital)
+1 only punctuation is appostrophe (contractions)
+2 avoid other thing than words. problematic and difficult to predict.
+3 wrong language (do nothing)
+4 no-profanity filtering. left up-to the last phase of text-prediction. (ie. replace profanity with "!@%#&!")
+5 typos. forget.
+6 low-up cases. all lower. left up-to the last phase. (ie. after a '.' capital)
+7 relay on n-grams.
 
 
 TASK 1
@@ -63,6 +69,13 @@ What are the frequencies of 2-grams and 3-grams in the dataset?
 How many unique words do you need in a frequency sorted dictionary to cover 50% of all word instances in the language? 90%?
 How do you evaluate how many of the words come from foreign languages?
 Can you think of a way to increase the coverage -- identifying words that may not be in the corpora or using a smaller number of words in the dictionary to cover the same number of phrases?
+
+1. DO FREQ STUDIES OF WORDS.
+2. FREQ OF 2-NGRAM
+3. EVALUATE WORDS ON FOREIGN LANG
+4. WORDS IN A CORPUS. coverage with dictionary.
+5. INCREASE COVERAGE.
+
 
 Tips and hints
 
@@ -114,3 +127,4 @@ Has the data scientist made basic plots,
 
 Was the report written in a brief, concise style, in a way that a non-data scientist manager could appreciate?
 3: yes, the report could be understood by a non data scientist and is brief and concise
+

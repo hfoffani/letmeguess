@@ -5,11 +5,55 @@ date: "21 de marzo de 2015"
 output: html_document
 ---
 
+# TO DO
+
+
+1. DO FREQ STUDIES OF WORDS.
+2. FREQ OF 2-NGRAM
+3. EVALUATE WORDS ON FOREIGN LANG
+4. WORDS IN A CORPUS. coverage with dictionary.
+5. INCREASE COVERAGE.
+
+
 ### Introduction
 
-### Describe the data
+
+### Preprocess the Corpus
+    unicode?
+    split files test-case. X%
+
+
+### Describe the Corpus
+
+    words in lower.
+    count lines, words per file.
+    unique words.
+    symbols.
+    numbers.
+    
+    
+### Building the data structures
+
+1 only punctuation is appostrophe (contractions)
+2 avoid other thing than words. problematic and difficult to predict.
+3 wrong language (do nothing)
+4 no-profanity filtering. left up-to the last phase of text-prediction. (ie. replace profanity with "!@%#&!")
+5 typos. forget.
+6 low-up cases. all lower. left up-to the last phase. (ie. after a '.' capital)
+
+    4-gram 3-gram 2-gram
+    tables
+    charts
+
 
 ### Describe the app
 
+user interface.
+
 ### Describe the algorithm
+
+7 relay on n-grams.
+
+4-gram backoff. coverage depending on available memory.
+map words to integer values to compress usage. (calculate how much)
 
