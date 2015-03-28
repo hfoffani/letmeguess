@@ -11,11 +11,12 @@ HOY:
     count symbols
     count numbers
     mostfreq.table.1
-    coverage.curve.1
+    + coverage.curve.1
     cov2gram.curve.2
     2gram.histogrm.1
     
     insert R-code in rmd. to charts.
+    add titles X/Y labels scales X/Y
 
 TOMORROW:
     write the text
@@ -45,9 +46,26 @@ TOMORROW:
     symbols.
     numbers.
 
+```{r, cache=T}
+commonwords <- read.csv('data/freq.1.all.txt', sep=" ", stringsAsFactors=F, nrows=1000, header=F, col.names=c('Freq','Word'))
+covwords <- read.csv('data/coverage-words.txt', sep=" ", header=F, col.names=c('Position','Freq'))
+cov2grams <- read.csv('data/coverage-2gram.txt', sep=" ", header=F, col.names=c('Position','Freq'))
+set.seed(1234)
+covwords <- covwords[sample(1:nrow(covwords), 10000, replace=FALSE),]
+cov2grams <- cov2grams[sample(1:nrow(cov2grams), 10000, replace=FALSE),]
+```
+
 1. DO FREQ STUDIES OF WORDS.
 
 most frequent words.
+
+```{r pander, }
+library(pander)
+panderOptions("table.split.table",1000)
+out <- matrix(head(commonwords$Word, n=100), ncol=10)
+pander(out)
+```
+
 === mostfreq.table.1
 obama == welcome
 t teaspoon the to (..n't contraction missing ')
@@ -61,8 +79,12 @@ nada.
 line-number, accum / tot <-- coverage.txt
 awk 'BEGIN { acum=0;t=50615233; } { acum+=$1; print NR, acum/t; }' freq.1.all.txt | sed 's/,/./' >  coverage.txt
 === coverage.curve.1
-4. WORDS IN A CORPUS. coverage with dictionary.
+```{r}
+plot(covwords)
+plot(covwords, log="x")
+```
 
+4. WORDS IN A CORPUS. coverage with dictionary.
 
 
 ### Building the data structures
@@ -78,10 +100,13 @@ awk 'BEGIN { acum=0;t=50615233; } { acum+=$1; print NR, acum/t; }' freq.1.all.tx
 
 2. FREQ OF 2-NGRAM
 50615230 total.
-data $ awk 'BEGIN { acum=0;t=50615230; } { acum+=$1; print NR, acum/t; }' freq.2.all.txt | sed 's/,/./' > coverage-2gram.txt
-
+awk 'BEGIN { acum=0;t=50615230; } { acum+=$1; print NR, acum/t; }' freq.2.all.txt | sed 's/,/./' > coverage-2gram.txt
 idem coverage 2-gram
 cov2gram.curve.2
+```{r}
+plot(cov2grams, log="x")
+```
+
 
 histograms 4-gram 3-gram 2-gram
 
