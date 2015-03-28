@@ -12,8 +12,6 @@ output: html_document
 2. FREQ OF 2-NGRAM
 3. EVALUATE WORDS ON FOREIGN LANG
 4. WORDS IN A CORPUS. coverage with dictionary.
-5. INCREASE COVERAGE.
-
 
 ### Introduction
 
@@ -41,6 +39,8 @@ output: html_document
 5 typos. forget.
 6 low-up cases. all lower. left up-to the last phase. (ie. after a '.' capital)
 
+    don't reset n-grams on full stops or newlines.
+
     4-gram 3-gram 2-gram
     tables
     charts
@@ -50,10 +50,15 @@ output: html_document
 
 user interface.
 
+
 ### Describe the algorithm
 
 7 relay on n-grams.
 
 4-gram backoff. coverage depending on available memory.
+
+5. INCREASE COVERAGE.
+    via 
+
 map words to integer values to compress usage. (calculate how much)
 
