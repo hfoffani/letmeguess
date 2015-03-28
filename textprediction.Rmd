@@ -8,14 +8,14 @@ output: html_document
 # TO DO
 
 HOY:
-    count symbols
-    count numbers
-    mostfreq.table.1
+    + count symbols
+    + count numbers
+    + mostfreq.table.1
     + coverage.curve.1
-    cov2gram.curve.2
+    + cov2gram.curve.2
     2gram.histogrm.1
     
-    insert R-code in rmd. to charts.
+    + insert R-code in rmd. to charts.
     add titles X/Y labels scales X/Y
 
 TOMORROW:
@@ -45,6 +45,16 @@ TOMORROW:
     unique words.
     symbols.
     numbers.
+
+    count symbols
+        3106 hashtags    
+    count numbers
+        grep "[[:digit:]*] .*[^[:alpha:]]" freq.1.all.txt | grep -v "'" |awk 'BEGIN { ac=0; } { ac+=$1; } END { print ac; }'
+        16947
+        grep "[[:digit:]*] .*[^A-Za-z]" freq.1.all.txt | grep -v "'" |awk 'BEGIN { ac=0; } { ac+=$1; } END { print ac; }'
+        30878
+        filtered (café)
+
 
 ```{r, cache=T}
 commonwords <- read.csv('data/freq.1.all.txt', sep=" ", stringsAsFactors=F, nrows=1000, header=F, col.names=c('Freq','Word'))
