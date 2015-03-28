@@ -59,10 +59,11 @@ cov2grams <- cov2grams[sample(1:nrow(cov2grams), 10000, replace=FALSE),]
 
 most frequent words.
 
-```{r pander, }
+```{r pander}
 library(pander)
 panderOptions("table.split.table",1000)
 out <- matrix(head(commonwords$Word, n=100), ncol=10)
+set.caption("Most common words")
 pander(out)
 ```
 
