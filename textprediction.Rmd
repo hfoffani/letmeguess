@@ -7,12 +7,19 @@ output: html_document
 
 # TO DO
 
+HOY:
+    count symbols
+    count numbers
+    mostfreq.table.1
+    coverage.curve.1
+    cov2gram.curve.2
+    2gram.histogrm.1
+    
+    insert R-code in rmd. to charts.
 
-1. DO FREQ STUDIES OF WORDS.
-2. FREQ OF 2-NGRAM
-3. EVALUATE WORDS ON FOREIGN LANG
-4. WORDS IN A CORPUS. coverage with dictionary.
-
+TOMORROW:
+    write the text
+    
 ### Introduction
 
 
@@ -25,11 +32,39 @@ output: html_document
 
     words in lower.
     count lines, words per file.
+    
+ 18735811 n1.blogs.txt words.
+ 17035050 n1.news.txt
+ 14844372 n1.twitter.txt
+
+ 50615233 total with symbols.
+   423633 freq.1.all.txt
+   230302 1 sample.
+
     unique words.
     symbols.
     numbers.
-    
-    
+
+1. DO FREQ STUDIES OF WORDS.
+
+most frequent words.
+=== mostfreq.table.1
+obama == welcome
+t teaspoon the to (..n't contraction missing ')
+
+adios == triangular == tomorow
+hashtags.  #20thingsaboutme
+
+3. EVALUATE WORDS ON FOREIGN LANG
+nada.
+
+line-number, accum / tot <-- coverage.txt
+awk 'BEGIN { acum=0;t=50615233; } { acum+=$1; print NR, acum/t; }' freq.1.all.txt | sed 's/,/./' >  coverage.txt
+=== coverage.curve.1
+4. WORDS IN A CORPUS. coverage with dictionary.
+
+
+
 ### Building the data structures
 
 1 only punctuation is appostrophe (contractions)
@@ -40,6 +75,15 @@ output: html_document
 6 low-up cases. all lower. left up-to the last phase. (ie. after a '.' capital)
 
     don't reset n-grams on full stops or newlines.
+
+2. FREQ OF 2-NGRAM
+50615230 total.
+data $ awk 'BEGIN { acum=0;t=50615230; } { acum+=$1; print NR, acum/t; }' freq.2.all.txt | sed 's/,/./' > coverage-2gram.txt
+
+idem coverage 2-gram
+cov2gram.curve.2
+
+histograms 4-gram 3-gram 2-gram
 
     4-gram 3-gram 2-gram
     tables
