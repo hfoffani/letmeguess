@@ -3,3 +3,5 @@
 data/*.txt
 test.html
 textprediction.html
+*_cache
+*_files
