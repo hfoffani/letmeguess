@@ -72,15 +72,16 @@ There are some interesting facts within this corpus.
 
 Counting the occurrence of words and taking the most common ones shows the expected results.
 
+##### Table with the first 100 most common words
 ```{r pander, echo=F}
 library(pander)
 panderOptions("table.split.table", 1000)
 out <- matrix(head(commonwords$Word, n=100), ncol=10)
-set.caption("Table with the 100 most common words")
+#set.caption("Table with the 100 most common words")
 pander(out)
 ```
 
-
+----------
 However the lemma *t* surprisingly appears within the most popular words. In this case this was due to the fact that its occurrence adds in many different meanings: t as tablespoon acronym in receipts, t in contractions with missing apostrophe, t as "the" and "to" abbreviations.
 
 Another finding is that the word "obama" has an occurrence similar to other common words like "welcome". This suggests that the corpus for this kind of applications must be a living entity.
