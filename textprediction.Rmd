@@ -47,7 +47,7 @@ The first thing I did was to split this files in train and test sets. The train 
 
 The rest of the study was done over the training set and to fairly compare these results with other studies the statistics will be reported in relative not absolute values.
 
-XXXX all lowercase.
+During the preprocessing phase I translate all characters to lowercase and split them in words using regular expressions.
 
 Due to the way these files are organized counting words per line differs significantly among the three. All in all they all share the same rate of words per file size. It can be interpreted as a density: lexical words per bytes.
 
@@ -103,11 +103,11 @@ It is more readably by graphing the x axis using a logarithm scale.
 plot(covwords, log="x")
 ```
 
-A layman will be surprised by the linearity of the relationship in this chart. The x axis is in a log scale which implies that the relation exists and is exponential. As a matter of fact this a well known behaviour called the Zipf's law http://en.wikipedia.org/wiki/Zipf%27s_law   XXXX
+A layman will be surprised by the linearity of the relationship in this chart. The x axis is in a log scale which implies that the relation exists and is exponential. As a matter of fact this a well known behaviour called the Zipf's law, see <http://en.wikipedia.org/wiki/Zipf%27s_law>
 
-XXX an increment of n --> x 50%---> xx 90%---> xx
+While dictionary of 1,000 words would cover 70% of usage, an 80% would require to double its size to 2,000 words aproximately.
 
-This property is very useful because it help us to decide the size of the dictionary we will use in the application.
+This property is key to help us to decide the size of the dictionary in the application that better fits the restricted environment.
 
 If instead of one word we take unique pair of words and measure their frequencies we build what is called bigrams or 2-grams. Plotting them shows a similar pattern although it takes much number of them to obtain the same increase in coverage.
 
@@ -129,7 +129,7 @@ The bottom panel will display some statistics regarding the performance of the a
 2. Any other things excepts words like numbers will be ignored.
 3. There will no special treatment for foreing languages. If some terms proves to be popular it will be included.
 4. Same for typos.
-5. All words will be in lower case. (see 6)
+5. All words will be in lower case. (see 7)
 6. Profanities won't be filered out but,
 7. A dictionary will translate proper names to uppercase and profanities with special characters.
 8. After a stop the next suggested word will be capitalized.
