@@ -93,8 +93,8 @@ While frequency occurrences are commonly shown using histograms, in this case I 
 library(ggplot2)
 library(scales)
 qplot(Position, Freq, data=covwords, colour=I("blue"))+
-    scale_y_continuous(labels=percent)+
-    scale_x_continuous(labels=comma)
+    scale_y_continuous(labels=percent, name="Coverage (in percentage over the corpus)")+
+    scale_x_continuous(labels=comma, name="Popularity Order (smaller numbers means more common)")
 ```
 
 It is more readable by graphing the x axis using a logarithm scale.
@@ -103,8 +103,8 @@ It is more readable by graphing the x axis using a logarithm scale.
 #plot(covwords, log="x", yaxt="n")
 #axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
 qplot(Position, Freq, data=covwords, colour=I("magenta"))+
-    scale_x_log10(labels=comma)+
-    scale_y_continuous(labels=percent)+
+    scale_x_log10(labels=comma, name="Popularity Order (smaller numbers means more common. log scale)")+
+    scale_y_continuous(labels=percent, name="Coverage (in percentage over the corpus)")+
     annotation_logticks(sides="tb")
 ```
 
@@ -120,8 +120,8 @@ If instead of one word we take unique pair of words and measure their frequencie
 #plot(cov2grams, log="x", yaxt="n")
 #axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
 qplot(Position, Freq, data=cov2grams, colour=I("red")) +
-    scale_x_log10(labels=comma) +
-    scale_y_continuous(labels=percent) +
+    scale_x_log10(labels=comma, name="Popularity Order (smaller numbers means more common. log scale)")+
+    scale_y_continuous(labels=percent, name="Coverage (in percentage over the corpus)")+
     annotation_logticks(sides="tb")
 ```
 
@@ -148,5 +148,5 @@ Internally the application will hold a n-gram dictionary (n-1 words being the pr
 
 If there is no match in the 4-gram the algorithm will fallback the 3-gram and try to match there and so on.
 
-Increasing the coverage while maintaining the memory footprint limited can be done by keeping the internal structures using hashes instead of literal strings.
+Increasing the coverage while maintaining a limited memory footprint can be done by keeping the internal structures using hashes instead of literal strings.
 
