@@ -27,6 +27,77 @@ My PLAN:
 
 
 
+ 100274519 n1.blogs.txt
+ 97645292 n1.news.txt
+ 77755789 n1.twitter.txt
+
+  899288 en_US.blogs.txt
+ 1010242 en_US.news.txt
+ 2360148 en_US.twitter.txt
+
+words in lower.
+    count lines, words per file.
+
+4269678 en_US.all.txt
+  899288 en_US.blogs.txt
+ 1010242 en_US.news.txt
+    
+ 18735811 n1.blogs.txt words.
+ 17035050 n1.news.txt
+ 14844372 n1.twitter.txt
+
+ 50615233 total with symbols.
+   423633 freq.1.all.txt
+   230302 1 sample.
+
+    unique words.
+    symbols.
+    numbers.
+
+
+    count symbols
+        3106 hashtags    
+    count numbers
+        grep "[[:digit:]*] .*[^[:alpha:]]" freq.1.all.txt | grep -v "'" |awk 'BEGIN { ac=0; } { ac+=$1; } END { print ac; }'
+        16947
+        grep "[[:digit:]*] .*[^A-Za-z]" freq.1.all.txt | grep -v "'" |awk 'BEGIN { ac=0; } { ac+=$1; } END { print ac; }'
+        30878
+        filtered (café)
+
+line-number, accum / tot <-- coverage.txt
+awk 'BEGIN { acum=0;t=50615233; } { acum+=$1; print NR, acum/t; }' freq.1.all.txt | sed 's/,/./' >  coverage.txt
+
+
+
+2. FREQ OF 2-NGRAM
+50615230 total.
+awk 'BEGIN { acum=0;t=50615230; } { acum+=$1; print NR, acum/t; }' freq.2.all.txt | sed 's/,/./' > coverage-2gram.txt
+idem coverage 2-gram
+
+
+
+    don't reset n-grams on full stops or newlines.
+
+4-gram backoff. coverage depending on available memory.
+
+5. INCREASE COVERAGE.
+    via 
+
+map words to integer values to compress usage. (calculate how much)
+
+histograms 4-gram 3-gram 2-gram
+cumulatives... logarithm.
+
+    4-gram 3-gram 2-gram
+    tables
+    charts
+
+XXXX SIZE: Shakespeare 884,421 Ours: 50,615,233 - Shakespeare unique 28,829 - Ours: 423,633 (ref http://www.opensourceshakespeare.org/stats/)
+
+
+
+
+
 
 
 TASK 0

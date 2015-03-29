@@ -14,22 +14,6 @@ cov2grams <- read.csv('data/coverage-2gram.txt', sep=" ", header=F, col.names=c(
 cov2grams <- cov2grams[sample(1:nrow(cov2grams), 10000, replace=FALSE),]
 ```
 
-#### TO DO
-
-HOY:
-    + count symbols
-    + count numbers
-    + mostfreq.table.1
-    + coverage.curve.1
-    + cov2gram.curve.2
-    2gram.histogrm.1
-    
-    + insert R-code in rmd. to charts.
-    add titles X/Y labels scales X/Y
-
-TOMORROW:
-    write the text
-    
 ### Introduction
 
 In spite of miniaturization, computarization and technology achivements ocurred along the last decades typing text in keyboards remains pretty similar what was a century ago. In portable digital devices like smartphones where the keyboard is extremely small the task became uncomfortable and slow. The popularization of these gadgets pressure the industry to find easier ways of entering text. Predicting the next word a user wants to type with a certain success can reduce the typing significantly.
@@ -45,9 +29,16 @@ Succintly the idea is to take a giant database of text, split it in small short 
 
 This giant database of text is called the *corpus*. For this exercise the corpus consists of three files of English texts. The first of the three includes the content of web blogs, the second contains news and the third are tweets.
 
-This files were provided by XXXXX.
+This files were provided by Coursera as part of Data Science Capstone project.
 
 Internally these corpus were built with one *item* per line. I.e. one blog article per line in the blogs file, one news article per line in the news file and one tweet per line in the tweets file.
+
+|     File             |  Number of lines  |
+|:--------------------:|:-----------------:|
+|                      |                   |
+|    en_US.blogs.txt   |      899,288      |
+|    en_US.news.txt    |    1,010,242      |
+|   en_US.twitter.txt  |    2,360,148      |
 
 The first thing I did was to split this files in train and test sets. The train set is 50% of the corpus. The rest will be used during the validation and test phase.
 
@@ -58,14 +49,19 @@ The rest of the study was done over the training set and to fairly compare these
 
 XXXX all lowercase.
 
-XXXX SIZE: Shakespeare 884,421 Ours: 50,615,233 - Shakespeare unique 28,829 - Ours: 423,633 (ref http://www.opensourceshakespeare.org/stats/)
-
 Due to the way these files are organized counting words per line differs significantly among the three. All in all they all share the same rate of words per file size. It can be interpreted as a density: lexical words per bytes.
 
-```{r}
-18735811/100274519 # blogs
-17035050/97645292  # news
+```{r pander0, echo=F}
+library(pander)
+panderOptions("table.split.table", 1000)
+Words.per.bytes <- c(
+18735811/100274519, # blogs
+17035050/97645292,  # news
 14844372/77755789  # tweets
+)
+File <- c('en_US.blogs.txt','en_US.news.txt','en_US.twitter.txt')
+df <- data.frame(File, Words.per.bytes)
+pander(df)
 ```
 
 The inverse of these values *does not* measure the mean of characters per English word, as the total byte values contains punctuation, numbers, symbols, etc.
@@ -85,6 +81,7 @@ out <- matrix(head(commonwords$Word, n=100), ncol=10)
 set.caption("Table with the 100 most common words")
 pander(out)
 ```
+
 
 However the lemma *t* surprisingly appears within the most popular words. In this case this was due to the fact that its ocurrence adds in many different meanings: t as tablespoon acronym in receipts, t in contractions with missing apostrophe, t as "the" and "to" abreviations.
 
@@ -106,7 +103,7 @@ It is more readably by graphing the x axis using a logarithm scale.
 plot(covwords, log="x")
 ```
 
-A layman will be surprised by the linearity of the relationship in this chart. The x axis is in a log scale which implies that the relation exists and is exponential. As a matter of fact this a well known behaviour called the Zipf's law http://en.wikipedia.org/wiki/Zipf%27s_law
+A layman will be surprised by the linearity of the relationship in this chart. The x axis is in a log scale which implies that the relation exists and is exponential. As a matter of fact this a well known behaviour called the Zipf's law http://en.wikipedia.org/wiki/Zipf%27s_law   XXXX
 
 XXX an increment of n --> x 50%---> xx 90%---> xx
 
@@ -118,36 +115,28 @@ If instead of one word we take unique pair of words and measure their frequencie
 plot(cov2grams, log="x")
 ```
 
-### Describe the app
 
-user interface.
+### The application
 
+The proof of concept will be implemented as a very simple web application consisting on a text box data entry and two small information panels, one on top and one at the bottom of the text box. The user will type whatever she wants in the text box and the predicted word will appear in the top panel. If she press tab the word will be copied inside the box avoiding the need to type it.
 
-### Describe the algorithm
-
-7 relay on n-grams.
+The bottom panel will display some statistics regarding the performance of the application like the numbers of key strokes that were saved for the user, the successful and failure prediction rates.
 
 
-1 only punctuation is appostrophe (contractions)
-2 avoid other thing than words. problematic and difficult to predict.
-3 wrong language (do nothing)
-4 no-profanity filtering. left up-to the last phase of text-prediction. (ie. replace profanity with "!@%#&!")
-5 typos. forget.
-6 low-up cases. all lower. left up-to the last phase. (ie. after a '.' capital)
+### The engine inside the application
 
-    don't reset n-grams on full stops or newlines.
+1. The application will ignore all punctuation symbols except for the appostrosphe.
+2. Any other things excepts words like numbers will be ignored.
+3. There will no special treatment for foreing languages. If some terms proves to be popular it will be included.
+4. Same for typos.
+5. All words will be in lower case. (see 6)
+6. Profanities won't be filered out but,
+7. A dictionary will translate proper names to uppercase and profanities with special characters.
+8. After a stop the next suggested word will be capitalized.
 
-4-gram backoff. coverage depending on available memory.
+Internally the application will hold a n-gram dictionary (n-1 words being the predictors, the nth the result) for n from 2 to 4.
 
-5. INCREASE COVERAGE.
-    via 
+If there is no match in the 4-gram the algorithm will fallback the 3-gram and try to match there and so on.
 
-map words to integer values to compress usage. (calculate how much)
-
-histograms 4-gram 3-gram 2-gram
-cumulatives... logarithm.
-
-    4-gram 3-gram 2-gram
-    tables
-    charts
+Increasing the coverage while mantaining the memory footprint limited can be done by keeping the internal structures using hashes instead of literal strings.
 
