@@ -92,28 +92,41 @@ As you see foreing words were not filtered out. If they appear in an English cor
 While frequency ocurrences are commonly shown using histograms, in this case I prefer to graph them using cummulative frequencies relative to the total number of words.
 
 ```{r, echo=F}
-plot(covwords, yaxt="n")
-axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
+# plot(covwords, yaxt="n")
+# axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
+library(ggplot2)
+library(scales)
+qplot(Position, Freq, data=covwords)+
+    scale_y_continuous(labels=percent)+
+    scale_x_continuous(labels=comma)
 ```
 
 It is more readably by graphing the x axis using a logarithm scale.
 
 ```{r, echo=F}
-plot(covwords, log="x", yaxt="n")
-axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
+#plot(covwords, log="x", yaxt="n")
+#axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
+qplot(Position, Freq, data=covwords)+
+    scale_x_log10(labels=comma)+
+    scale_y_continuous(labels=percent)+
+    annotation_logticks(sides="tb")
 ```
 
 A layman will be surprised by the linearity of the relationship in this chart. The x axis is in a log scale which implies that the relation exists and is exponential. As a matter of fact this a well known behaviour called the Zipf's law, see <http://en.wikipedia.org/wiki/Zipf%27s_law>
 
-While dictionary of 1,000 words would cover 70% of usage, an 80% would require to double its size to 2,000 words aproximately.
+While dictionary of 1,000 words would cover 70% of usage, an 80% would require to triple its size to 3,000 words aproximately.
 
 This property is key to help us to decide the size of the dictionary in the application that better fits the restricted environment.
 
 If instead of one word we take unique pair of words and measure their frequencies we build what is called bigrams or 2-grams. Plotting them shows a similar pattern although it takes much number of them to obtain the same increase in coverage.
 
 ```{r, echo=F}
-plot(cov2grams, log="x", yaxt="n")
-axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
+#plot(cov2grams, log="x", yaxt="n")
+#axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
+qplot(Position, Freq, data=cov2grams)+
+    scale_x_log10(labels=comma)+
+    scale_y_continuous(labels=percent)+
+    annotation_logticks(sides="tb")    
 ```
 
 

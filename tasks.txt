@@ -4,8 +4,9 @@ My PLAN:
 
 + publish
 + submit.
-pretty charts.
++ pretty charts.
 spell check
+explicar Freq y Position en charts.
 proof reading.
 double check.
 
