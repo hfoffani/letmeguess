@@ -92,7 +92,7 @@ While frequency occurrences are commonly shown using histograms, in this case I 
 # axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
 library(ggplot2)
 library(scales)
-qplot(Position, Freq, data=covwords)+
+qplot(Position, Freq, data=covwords, colour=I("blue"))+
     scale_y_continuous(labels=percent)+
     scale_x_continuous(labels=comma)
 ```
@@ -102,7 +102,7 @@ It is more readable by graphing the x axis using a logarithm scale.
 ```{r, echo=F}
 #plot(covwords, log="x", yaxt="n")
 #axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
-qplot(Position, Freq, data=covwords)+
+qplot(Position, Freq, data=covwords, colour=I("magenta"))+
     scale_x_log10(labels=comma)+
     scale_y_continuous(labels=percent)+
     annotation_logticks(sides="tb")
@@ -119,10 +119,10 @@ If instead of one word we take unique pair of words and measure their frequencie
 ```{r, echo=F}
 #plot(cov2grams, log="x", yaxt="n")
 #axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
-qplot(Position, Freq, data=cov2grams)+
-    scale_x_log10(labels=comma)+
-    scale_y_continuous(labels=percent)+
-    annotation_logticks(sides="tb")    
+qplot(Position, Freq, data=cov2grams, colour=I("red")) +
+    scale_x_log10(labels=comma) +
+    scale_y_continuous(labels=percent) +
+    annotation_logticks(sides="tb")
 ```
 
 
