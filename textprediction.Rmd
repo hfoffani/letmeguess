@@ -1,9 +1,18 @@
 ---
 title: "Text Prediction"
 author: "herchu"
-date: "21 de marzo de 2015"
+date: "Sunday, March 29th. 2015"
 output: html_document
 ---
+
+```{r, readcsv, cache=T, echo=F}
+set.seed(1234)
+commonwords <- read.csv('data/freq.1.all.txt', sep=" ", stringsAsFactors=F, nrows=1000, header=F, col.names=c('Freq','Word'))
+covwords <- read.csv('data/coverage-words.txt', sep=" ", header=F, col.names=c('Position','Freq'))
+covwords <- covwords[sample(1:nrow(covwords), 10000, replace=FALSE),]
+cov2grams <- read.csv('data/coverage-2gram.txt', sep=" ", header=F, col.names=c('Position','Freq'))
+cov2grams <- cov2grams[sample(1:nrow(cov2grams), 10000, replace=FALSE),]
+```
 
 #### TO DO
 
@@ -38,106 +47,76 @@ This giant database of text is called the *corpus*. For this exercise the corpus
 
 This files were provided by XXXXX.
 
+Internally these corpus were built with one *item* per line. I.e. one blog article per line in the blogs file, one news article per line in the news file and one tweet per line in the tweets file.
+
 The first thing I did was to split this files in train and test sets. The train set is 50% of the corpus. The rest will be used during the validation and test phase.
 
 
-### Describe the Corpus
+### Corpus Description
 
-    words in lower.
-    count lines, words per file.
-    
- 18735811 n1.blogs.txt words.
- 17035050 n1.news.txt
- 14844372 n1.twitter.txt
+The rest of the study was done over the training set and to fairly compare these results with other studies the statistics will be reported in relative not absolute values.
 
- 50615233 total with symbols.
-   423633 freq.1.all.txt
-   230302 1 sample.
+XXXX all lowercase.
 
-    unique words.
-    symbols.
-    numbers.
+XXXX SIZE: Shakespeare 884,421 Ours: 50,615,233 - Shakespeare unique 28,829 - Ours: 423,633 (ref http://www.opensourceshakespeare.org/stats/)
 
-    count symbols
-        3106 hashtags    
-    count numbers
-        grep "[[:digit:]*] .*[^[:alpha:]]" freq.1.all.txt | grep -v "'" |awk 'BEGIN { ac=0; } { ac+=$1; } END { print ac; }'
-        16947
-        grep "[[:digit:]*] .*[^A-Za-z]" freq.1.all.txt | grep -v "'" |awk 'BEGIN { ac=0; } { ac+=$1; } END { print ac; }'
-        30878
-        filtered (café)
+Due to the way these files are organized counting words per line differs significantly among the three. All in all they all share the same rate of words per file size. It can be interpreted as a density: lexical words per bytes.
 
-
-```{r, cache=T}
-commonwords <- read.csv('data/freq.1.all.txt', sep=" ", stringsAsFactors=F, nrows=1000, header=F, col.names=c('Freq','Word'))
-covwords <- read.csv('data/coverage-words.txt', sep=" ", header=F, col.names=c('Position','Freq'))
-cov2grams <- read.csv('data/coverage-2gram.txt', sep=" ", header=F, col.names=c('Position','Freq'))
-set.seed(1234)
-covwords <- covwords[sample(1:nrow(covwords), 10000, replace=FALSE),]
-cov2grams <- cov2grams[sample(1:nrow(cov2grams), 10000, replace=FALSE),]
+```{r}
+18735811/100274519 # blogs
+17035050/97645292  # news
+14844372/77755789  # tweets
 ```
 
-1. DO FREQ STUDIES OF WORDS.
+The inverse of these values *does not* measure the mean of characters per English word, as the total byte values contains punctuation, numbers, symbols, etc.
 
-most frequent words.
+There are some interesting facts within this corpus.
 
-```{r pander}
+1. It contains `r 3106/423633*100`% unique hashtags.
+2. There are `r 30878/423633*100`% different words with non English characters,
+3. where `r 16947/423633*100`% are non-alphabetic distinct lemmas.
+
+Counting the occurrence of words and taking the most common ones shows the expected results.
+
+```{r pander, echo=F}
 library(pander)
-panderOptions("table.split.table",1000)
+panderOptions("table.split.table", 1000)
 out <- matrix(head(commonwords$Word, n=100), ncol=10)
-set.caption("Most common words")
+set.caption("Table with the 100 most common words")
 pander(out)
 ```
 
-=== mostfreq.table.1
-obama == welcome
-t teaspoon the to (..n't contraction missing ')
+However the lemma *t* surprisingly appears within the most popular words. In this case this was due to the fact that its ocurrence adds in many different meanings: t as tablespoon acronym in receipts, t in contractions with missing apostrophe, t as "the" and "to" abreviations.
 
-adios == triangular == tomorow
-hashtags.  #20thingsaboutme
+Another finding is that the word "obama" has an occurrence similar to other common words like "welcome". This suggests that the corpus for this kind of applications must be a living entity.
 
-3. EVALUATE WORDS ON FOREIGN LANG
-nada.
+Misspellings and foreign lemmas also show some commonality. "adios" and "tomorow" have the same frequency as the beauty but uncommon word "triangular".
 
-line-number, accum / tot <-- coverage.txt
-awk 'BEGIN { acum=0;t=50615233; } { acum+=$1; print NR, acum/t; }' freq.1.all.txt | sed 's/,/./' >  coverage.txt
-=== coverage.curve.1
-```{r}
+As you see foreing words were not filtered out. If they appear in an English corpus it would be for a reason.
+
+While frequency ocurrences are commonly shown using histograms, in this case I prefer to graph them using cummulative frequencies relative to the total number of words.
+
+```{r, echo=F}
 plot(covwords)
+```
+
+It is more readably by graphing the x axis using a logarithm scale.
+
+```{r, echo=F}
 plot(covwords, log="x")
 ```
 
-4. WORDS IN A CORPUS. coverage with dictionary.
+A layman will be surprised by the linearity of the relationship in this chart. The x axis is in a log scale which implies that the relation exists and is exponential. As a matter of fact this a well known behaviour called the Zipf's law http://en.wikipedia.org/wiki/Zipf%27s_law
 
+XXX an increment of n --> x 50%---> xx 90%---> xx
 
-### Building the data structures
+This property is very useful because it help us to decide the size of the dictionary we will use in the application.
 
-1 only punctuation is appostrophe (contractions)
-2 avoid other thing than words. problematic and difficult to predict.
-3 wrong language (do nothing)
-4 no-profanity filtering. left up-to the last phase of text-prediction. (ie. replace profanity with "!@%#&!")
-5 typos. forget.
-6 low-up cases. all lower. left up-to the last phase. (ie. after a '.' capital)
+If instead of one word we take unique pair of words and measure their frequencies we build what is called bigrams or 2-grams. Plotting them shows a similar pattern although it takes much number of them to obtain the same increase in coverage.
 
-    don't reset n-grams on full stops or newlines.
-
-2. FREQ OF 2-NGRAM
-50615230 total.
-awk 'BEGIN { acum=0;t=50615230; } { acum+=$1; print NR, acum/t; }' freq.2.all.txt | sed 's/,/./' > coverage-2gram.txt
-idem coverage 2-gram
-cov2gram.curve.2
-```{r}
+```{r, echo=F}
 plot(cov2grams, log="x")
 ```
-
-
-histograms 4-gram 3-gram 2-gram
-cumulatives... logarithm.
-
-    4-gram 3-gram 2-gram
-    tables
-    charts
-
 
 ### Describe the app
 
@@ -148,10 +127,27 @@ user interface.
 
 7 relay on n-grams.
 
+
+1 only punctuation is appostrophe (contractions)
+2 avoid other thing than words. problematic and difficult to predict.
+3 wrong language (do nothing)
+4 no-profanity filtering. left up-to the last phase of text-prediction. (ie. replace profanity with "!@%#&!")
+5 typos. forget.
+6 low-up cases. all lower. left up-to the last phase. (ie. after a '.' capital)
+
+    don't reset n-grams on full stops or newlines.
+
 4-gram backoff. coverage depending on available memory.
 
 5. INCREASE COVERAGE.
     via 
 
 map words to integer values to compress usage. (calculate how much)
+
+histograms 4-gram 3-gram 2-gram
+cumulatives... logarithm.
+
+    4-gram 3-gram 2-gram
+    tables
+    charts
 
