@@ -16,14 +16,14 @@ cov2grams <- cov2grams[sample(1:nrow(cov2grams), 10000, replace=FALSE),]
 
 ### Introduction
 
-In spite of miniaturization, computarization and technology achivements ocurred along the last decades typing text in keyboards remains pretty similar what was a century ago. In portable digital devices like smartphones where the keyboard is extremely small the task became uncomfortable and slow. The popularization of these gadgets pressure the industry to find easier ways of entering text. Predicting the next word a user wants to type with a certain success can reduce the typing significantly.
+In spite of miniaturization, computerization and technology achievements occurred along the last decades typing text in keyboards remains pretty similar what was a century ago. In portable digital devices like smartphones where the keyboard is extremely small the task became uncomfortable and slow. The popularization of these gadgets pressure the industry to find easier ways of entering text. Predicting the next word a user wants to type with a certain success can reduce the typing significantly.
 
-In this report I describe a proof of concept of such technique that will be implemented as a web application, the algorithm that will drive this application, its contraints and how to measure its effectivenenss.
+In this report I describe a proof of concept of such technique that will be implemented as a web application, the algorithm that will drive this application, its constraints and how to measure its effectiveness.
 
 
 ### The Corpus
 
-Succintly the idea is to take a giant database of text, split it in small short phrases, sort them by popularity (frequency of occurrence), and store them in a local database. When a user types a sentence the application takes this partial phrase and looks for the best match it the database, if it can find one it suggest the user the rest of the phrase.
+Succinctly the idea is to take a giant database of text, split it in small short phrases, sort them by popularity (frequency of occurrence), and store them in a local database. When a user types a sentence the application takes this partial phrase and looks for the best match it the database, if it can find one it suggest the user the rest of the phrase.
 
 This giant database of text is called the *corpus*. For this exercise the corpus consists of three files of English texts. The first of the three includes the content of web blogs, the second contains news and the third are tweets.
 
@@ -45,7 +45,7 @@ The first thing I did was to split this files in train and test sets. The train 
 
 The rest of the study was done over the training set and to fairly compare these results with other studies the statistics will be reported in relative not absolute values.
 
-During the preprocessing phase I translate all characters to lowercase and split them in words using regular expressions.
+During the pre-processing phase I translate all characters to lowercase and split them in words using regular expressions.
 
 Due to the way these files are organized counting words per line differs significantly among the three. All in all they all share the same rate of words per file size. It can be interpreted as a density: lexical words per bytes.
 
@@ -66,7 +66,7 @@ The inverse of these values *does not* measure the mean of characters per Englis
 
 There are some interesting facts within this corpus.
 
-1. It contains `r 3106/423633*100`% unique hashtags.
+1. It contains `r 3106/423633*100`% unique hash-tags.
 2. There are `r 30878/423633*100`% different words with non English characters,
 3. where `r 16947/423633*100`% are non-alphabetic distinct lemmas.
 
@@ -81,15 +81,15 @@ pander(out)
 ```
 
 
-However the lemma *t* surprisingly appears within the most popular words. In this case this was due to the fact that its ocurrence adds in many different meanings: t as tablespoon acronym in receipts, t in contractions with missing apostrophe, t as "the" and "to" abreviations.
+However the lemma *t* surprisingly appears within the most popular words. In this case this was due to the fact that its occurrence adds in many different meanings: t as tablespoon acronym in receipts, t in contractions with missing apostrophe, t as "the" and "to" abbreviations.
 
 Another finding is that the word "obama" has an occurrence similar to other common words like "welcome". This suggests that the corpus for this kind of applications must be a living entity.
 
 Misspellings and foreign lemmas also show some commonality. "adios" and "tomorow" have the same frequency as the beauty but uncommon word "triangular".
 
-As you see foreing words were not filtered out. If they appear in an English corpus it would be for a reason.
+As you see foreign words were not filtered out. If they appear in an English corpus it would be for a reason.
 
-While frequency ocurrences are commonly shown using histograms, in this case I prefer to graph them using cummulative frequencies relative to the total number of words.
+While frequency occurrences are commonly shown using histograms, in this case I prefer to graph them using cumulative frequencies relative to the total number of words.
 
 ```{r, echo=F}
 # plot(covwords, yaxt="n")
@@ -101,7 +101,7 @@ qplot(Position, Freq, data=covwords)+
     scale_x_continuous(labels=comma)
 ```
 
-It is more readably by graphing the x axis using a logarithm scale.
+It is more readable by graphing the x axis using a logarithm scale.
 
 ```{r, echo=F}
 #plot(covwords, log="x", yaxt="n")
@@ -112,13 +112,13 @@ qplot(Position, Freq, data=covwords)+
     annotation_logticks(sides="tb")
 ```
 
-A layman will be surprised by the linearity of the relationship in this chart. The x axis is in a log scale which implies that the relation exists and is exponential. As a matter of fact this a well known behaviour called the Zipf's law, see <http://en.wikipedia.org/wiki/Zipf%27s_law>
+A layman will be surprised by the linearity of the relationship in this chart. The x axis is in a log scale which implies that the relation exists and is exponential. As a matter of fact this a well known behavior called the Zipf's law, see <http://en.wikipedia.org/wiki/Zipf%27s_law>
 
-While dictionary of 1,000 words would cover 70% of usage, an 80% would require to triple its size to 3,000 words aproximately.
+While dictionary of 1,000 words would cover 70% of usage, an 80% would require to triple its size to 3,000 words approximately.
 
 This property is key to help us to decide the size of the dictionary in the application that better fits the restricted environment.
 
-If instead of one word we take unique pair of words and measure their frequencies we build what is called bigrams or 2-grams. Plotting them shows a similar pattern although it takes much number of them to obtain the same increase in coverage.
+If instead of one word we take unique pair of words and measure their frequencies we build what is called bi-grams or 2-grams. Plotting them shows a similar pattern although it takes much number of them to obtain the same increase in coverage.
 
 ```{r, echo=F}
 #plot(cov2grams, log="x", yaxt="n")
@@ -139,12 +139,12 @@ The bottom panel will display some statistics regarding the performance of the a
 
 ### The engine inside the application
 
-1. The application will ignore all punctuation symbols except for the appostrosphe.
+1. The application will ignore all punctuation symbols except for the apostrophe.
 2. Any other things excepts words like numbers will be ignored.
-3. There will no special treatment for foreing languages. If some terms proves to be popular it will be included.
+3. There will no special treatment for foreign languages. If some terms proves to be popular it will be included.
 4. Same for typos.
 5. All words will be in lower case. (see 7)
-6. Profanities won't be filered out but,
+6. Profanities won't be filtered out but,
 7. A dictionary will translate proper names to uppercase and profanities with special characters.
 8. After a stop the next suggested word will be capitalized.
 
@@ -152,5 +152,5 @@ Internally the application will hold a n-gram dictionary (n-1 words being the pr
 
 If there is no match in the 4-gram the algorithm will fallback the 3-gram and try to match there and so on.
 
-Increasing the coverage while mantaining the memory footprint limited can be done by keeping the internal structures using hashes instead of literal strings.
+Increasing the coverage while maintaining the memory footprint limited can be done by keeping the internal structures using hashes instead of literal strings.
 
