@@ -1,5 +1,18 @@
 My PLAN:
 
+---
+
++ publish
+submit.
+pretty charts.
+spell check
+proof reading.
+double check.
+
+---
+
+
+
 +1. raw files.
     words in lower.
     count lines, words per file.

@@ -23,8 +23,6 @@ In this report I describe a proof of concept of such technique that will be impl
 
 ### The Corpus
 
-How to predict a user intention? Given that reading the mind is out of the question (at least for time being) we must relay on past events. Analyzing the text a user have just typed and based on that predict her next word can be a reliable way. The key word here is *analyzing*. Natural Language Processing is the science branch that study the digital processing of human languages. and for this application I focus on just one technique that have proven a significant rate of success.
-
 Succintly the idea is to take a giant database of text, split it in small short phrases, sort them by popularity (frequency of occurrence), and store them in a local database. When a user types a sentence the application takes this partial phrase and looks for the best match it the database, if it can find one it suggest the user the rest of the phrase.
 
 This giant database of text is called the *corpus*. For this exercise the corpus consists of three files of English texts. The first of the three includes the content of web blogs, the second contains news and the third are tweets.
