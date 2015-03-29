@@ -23,13 +23,9 @@ In this report I describe a proof of concept of such technique that will be impl
 
 ### The Corpus
 
-Succinctly the idea is to take a giant database of text, split it in small short phrases, sort them by popularity (frequency of occurrence), and store them in a local database. When a user types a sentence the application takes this partial phrase and looks for the best match it the database, if it can find one it suggest the user the rest of the phrase.
+Succinctly the idea is to take a giant database of text, split it in small short phrases, sort them by popularity (frequency of occurrence), and store them in a local database. When a user types a sentence the application takes this partial phrase and looks for the best match it the database, if it can find one it suggest the user the rest of the phrase. This giant database of text is called a *corpus*.
 
-This giant database of text is called the *corpus*. For this exercise the corpus consists of three files of English texts. The first of the three includes the content of web blogs, the second contains news and the third are tweets.
-
-This files were provided by Coursera as part of Data Science Capstone project.
-
-Internally these corpus were built with one *item* per line. I.e. one blog article per line in the blogs file, one news article per line in the news file and one tweet per line in the tweets file.
+For this exercise the corpus consists of three files of English texts. The first of the three includes the content of web blogs, the second contains news and the third are tweets. This files were provided by Coursera as part of Data Science Capstone project.
 
 |     File             |  Number of lines  |
 |:--------------------:|:-----------------:|
@@ -62,7 +58,7 @@ df <- data.frame(File, Words.per.bytes)
 pander(df)
 ```
 
-The inverse of these values *does not* measure the mean of characters per English word, as the total byte values contains punctuation, numbers, symbols, etc.
+The inverse of these values *is not* the average English word length in characters, as the total byte values contains punctuation, numbers, symbols, etc.
 
 There are some interesting facts within this corpus.
 
@@ -72,17 +68,16 @@ There are some interesting facts within this corpus.
 
 Counting the occurrence of words and taking the most common ones shows the expected results.
 
-##### Table with the first 100 most common words
+##### Table with the first 150 most common words
 ```{r pander, echo=F}
 library(pander)
 panderOptions("table.split.table", 1000)
-out <- matrix(head(commonwords$Word, n=100), ncol=10)
-#set.caption("Table with the 100 most common words")
+out <- matrix(head(commonwords$Word, n=150), ncol=15)
 pander(out)
 ```
 
 ----------
-However the lemma *t* surprisingly appears within the most popular words. In this case this was due to the fact that its occurrence adds in many different meanings: t as tablespoon acronym in receipts, t in contractions with missing apostrophe, t as "the" and "to" abbreviations.
+However the lemma *t* surprisingly appears within the most popular words. In this case this was due to the fact that its occurrence adds in many different meanings: t as tablespoon acronym in receipts, t in contractions with missing apostrophe, t as "the" and "to" abbreviations. In this set there's also the lemma *u* which of course is the popular abbreviation of the word "you" in informal written language.
 
 Another finding is that the word "obama" has an occurrence similar to other common words like "welcome". This suggests that the corpus for this kind of applications must be a living entity.
 
@@ -115,7 +110,7 @@ qplot(Position, Freq, data=covwords)+
 
 A layman will be surprised by the linearity of the relationship in this chart. The x axis is in a log scale which implies that the relation exists and is exponential. As a matter of fact this a well known behavior called the Zipf's law, see <http://en.wikipedia.org/wiki/Zipf%27s_law>
 
-While dictionary of 1,000 words would cover 70% of usage, an 80% would require to triple its size to 3,000 words approximately.
+Those 150 lemmas cover 50% of word use case. While a dictionary of 1,000 words would cover 70% of the most common words, increasing up to 80% would require to triple its size, to 3,000 words approximately.
 
 This property is key to help us to decide the size of the dictionary in the application that better fits the restricted environment.
 
