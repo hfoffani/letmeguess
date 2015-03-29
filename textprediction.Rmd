@@ -5,7 +5,7 @@ date: "21 de marzo de 2015"
 output: html_document
 ---
 
-# TO DO
+#### TO DO
 
 HOY:
     + count symbols
@@ -23,8 +23,16 @@ TOMORROW:
     
 ### Introduction
 
+In spite of miniaturization, computarization and technology achivements ocurred along the last decades typing text in keyboards remains pretty similar what was a century ago. In portable digital devices like smartphones where the keyboard is extremely small the task became uncomfortable and slow. The popularization of these gadgets pressure the industry to find easier ways of entering text. Predicting the next word a user wants to type with a certain success can reduce the typing significantly.
 
-### Preprocess the Corpus
+In this report I describe a proof of concept of such technique that will be implemented as a web application, the algorithm that will drive this application, its contraints and how to measure its effectivenenss.
+
+
+### The Corpus
+
+How to predict a user intention? Given that reading the mind is out of the question (at least for time being) we must relay on past events. 
+
+
     unicode?
     split files test-case. X%
 
@@ -120,6 +128,7 @@ plot(cov2grams, log="x")
 
 
 histograms 4-gram 3-gram 2-gram
+cumulatives... logarithm.
 
     4-gram 3-gram 2-gram
     tables
