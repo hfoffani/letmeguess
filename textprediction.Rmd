@@ -92,13 +92,15 @@ As you see foreing words were not filtered out. If they appear in an English cor
 While frequency ocurrences are commonly shown using histograms, in this case I prefer to graph them using cummulative frequencies relative to the total number of words.
 
 ```{r, echo=F}
-plot(covwords)
+plot(covwords, yaxt="n")
+axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
 ```
 
 It is more readably by graphing the x axis using a logarithm scale.
 
 ```{r, echo=F}
-plot(covwords, log="x")
+plot(covwords, log="x", yaxt="n")
+axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
 ```
 
 A layman will be surprised by the linearity of the relationship in this chart. The x axis is in a log scale which implies that the relation exists and is exponential. As a matter of fact this a well known behaviour called the Zipf's law, see <http://en.wikipedia.org/wiki/Zipf%27s_law>
@@ -110,7 +112,8 @@ This property is key to help us to decide the size of the dictionary in the appl
 If instead of one word we take unique pair of words and measure their frequencies we build what is called bigrams or 2-grams. Plotting them shows a similar pattern although it takes much number of them to obtain the same increase in coverage.
 
 ```{r, echo=F}
-plot(cov2grams, log="x")
+plot(cov2grams, log="x", yaxt="n")
+axis(2, at=pretty(covwords$Freq), lab=paste0(pretty(covwords$Freq)*100, "%"), las=T)
 ```
 
 

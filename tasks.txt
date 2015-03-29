@@ -3,7 +3,7 @@ My PLAN:
 ---
 
 + publish
-submit.
++ submit.
 pretty charts.
 spell check
 proof reading.
