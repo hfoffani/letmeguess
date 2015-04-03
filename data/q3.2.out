@@ -1,0 +1,109 @@
+QUIZ 3
+ngram 2
+
+live and I'd
+
+
+me about his
+freq.2.blogs.txt:   8 his spiritual
+freq.2.news.txt:   5 his spiritual
+freq.2.blogs.txt:   3 his marital
+freq.2.news.txt:   1 his marital
+freq.2.blogs.txt:   7 his financial
+freq.2.news.txt:  20 his financial
+
+
+artic monkeys this
+freq.2.blogs.txt:  19 this decade
+freq.2.news.txt:  32 this decade
+freq.2.twitter.txt:  12 this decade
+freq.2.blogs.txt: 820 this month
+freq.2.news.txt:1199 this month
+freq.2.twitter.txt: 452 this month
+freq.2.blogs.txt: 964 this weekend
+freq.2.news.txt: 545 this weekend
+freq.2.twitter.txt:3804 this weekend
+freq.2.blogs.txt:1607 this morning
+freq.2.news.txt: 904 this morning
+freq.2.twitter.txt:3518 this morning
+
+
+helps reduce your
+freq.2.blogs.txt:  17 your happiness
+freq.2.twitter.txt:  43 your happiness
+freq.2.blogs.txt:   5 your hunger
+freq.2.news.txt:   2 your hunger
+freq.2.twitter.txt:  14 your hunger
+freq.2.blogs.txt:  12 your stress
+freq.2.news.txt:   8 your stress
+freq.2.twitter.txt:  11 your stress
+
+
+to take a
+freq.2.blogs.txt: 796 a look
+freq.2.news.txt: 407 a look
+freq.2.twitter.txt: 360 a look
+freq.2.blogs.txt: 321 a walk
+freq.2.news.txt: 280 a walk
+freq.2.twitter.txt: 300 a walk
+freq.2.blogs.txt: 960 a picture
+freq.2.news.txt: 256 a picture
+freq.2.twitter.txt: 655 a picture
+freq.2.blogs.txt: 725 a minute
+freq.2.news.txt: 489 a minute
+freq.2.twitter.txt: 626 a minute
+
+
+to settle the
+freq.2.blogs.txt:  72 the account
+freq.2.news.txt:  71 the account
+freq.2.twitter.txt:  64 the account
+freq.2.blogs.txt:1557 the case
+freq.2.news.txt:2768 the case
+freq.2.twitter.txt: 266 the case
+freq.2.blogs.txt: 400 the matter
+freq.2.news.txt: 543 the matter
+freq.2.twitter.txt:  60 the matter
+freq.2.blogs.txt: 158 the incident
+freq.2.news.txt: 732 the incident
+freq.2.twitter.txt:  13 the incident
+
+
+groceries in each
+freq.2.blogs.txt:  11 each arm
+freq.2.news.txt:   2 each arm
+freq.2.twitter.txt:   2 each arm
+freq.2.blogs.txt:  15 each hand
+freq.2.news.txt:   7 each hand
+freq.2.twitter.txt:  11 each hand
+freq.2.blogs.txt:   1 each finger
+freq.2.news.txt:   2 each toe
+
+
+bottom to the
+freq.2.blogs.txt:2009 the middle
+freq.2.news.txt:1566 the middle
+freq.2.twitter.txt: 857 the middle
+freq.2.blogs.txt:2939 the top
+freq.2.news.txt:3266 the top
+freq.2.twitter.txt:1114 the top
+freq.2.blogs.txt: 778 the center
+freq.2.news.txt:1328 the center
+freq.2.twitter.txt: 153 the center
+freq.2.blogs.txt: 967 the side
+freq.2.news.txt: 501 the side
+freq.2.twitter.txt: 276 the side
+
+
+bruises from playing
+freq.2.blogs.txt:  17 playing outside
+freq.2.news.txt:   7 playing outside
+freq.2.twitter.txt:  10 playing outside
+freq.2.blogs.txt:   1 playing inside
+freq.2.news.txt:   5 playing inside
+freq.2.twitter.txt:   2 playing inside
+
+
+of adam sandler's
+
+

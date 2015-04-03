@@ -1,0 +1,159 @@
+QUIZ 3
+ngram 3
+
+live and I'd
+
+
+me about his
+freq.3.news.txt:   1 about his spiritual
+
+
+artic monkeys this
+
+
+helps reduce your
+freq.3.blogs.txt:   1 reduce your stresses
+
+
+to take a
+freq.3.blogs.txt: 369 take a look
+freq.3.blogs.txt:   1 take a lookie
+freq.3.news.txt: 118 take a look
+freq.3.twitter.txt: 226 take a look
+freq.3.blogs.txt:  32 take a walk
+freq.3.news.txt:  12 take a walk
+freq.3.twitter.txt:  32 take a walk
+freq.3.twitter.txt:   1 take a walking
+freq.3.blogs.txt: 126 take a picture
+freq.3.news.txt:  18 take a picture
+freq.3.twitter.txt: 115 take a picture
+freq.3.blogs.txt:  39 take a minute
+freq.3.blogs.txt:   1 take a minutes
+freq.3.news.txt:   7 take a minute
+freq.3.twitter.txt:  28 take a minute
+
+
+to settle the
+freq.3.blogs.txt:   1 settle the accounts
+freq.3.blogs.txt:   1 settle the account
+freq.3.blogs.txt:   3 settle the case
+freq.3.news.txt:  12 settle the case
+freq.3.blogs.txt:   1 settle the matter
+freq.3.twitter.txt:   1 settle the matter
+
+
+groceries in each
+freq.3.blogs.txt:   2 in each arm
+freq.3.twitter.txt:   1 in each arm
+freq.3.blogs.txt:   6 in each hand
+freq.3.news.txt:   3 in each hand
+freq.3.twitter.txt:   6 in each hand
+
+
+bottom to the
+freq.3.blogs.txt:  54 to the middle
+freq.3.blogs.txt:  39 into the middle
+freq.3.blogs.txt:   1 to the middlenomore
+freq.3.blogs.txt:   1 onto the middle
+freq.3.news.txt:  58 to the middle
+freq.3.news.txt:  33 into the middle
+freq.3.news.txt:   5 to the middlesex
+freq.3.news.txt:   1 into the middleweight
+freq.3.twitter.txt:  23 to the middle
+freq.3.twitter.txt:   6 into the middle
+freq.3.blogs.txt: 313 to the top
+freq.3.blogs.txt:  22 into the top
+freq.3.blogs.txt:  15 to the topic
+freq.3.blogs.txt:  12 onto the top
+freq.3.blogs.txt:   4 to the tops
+freq.3.blogs.txt:   3 to the topics
+freq.3.blogs.txt:   2 onto the topic
+freq.3.blogs.txt:   1 to the topshop
+freq.3.blogs.txt:   1 to the topps
+freq.3.blogs.txt:   1 to the toppling
+freq.3.blogs.txt:   1 to the toppings
+freq.3.blogs.txt:   1 to the topping
+freq.3.blogs.txt:   1 to the toppie
+freq.3.blogs.txt:   1 to the topmost
+freq.3.blogs.txt:   1 to the topless
+freq.3.blogs.txt:   1 to the toping
+freq.3.blogs.txt:   1 onto the tops
+freq.3.blogs.txt:   1 into the topsoil
+freq.3.blogs.txt:   1 into the topic
+freq.3.news.txt: 255 to the top
+freq.3.news.txt:  54 into the top
+freq.3.news.txt:   5 onto the top
+freq.3.news.txt:   2 to the tops
+freq.3.news.txt:   2 to the toppling
+freq.3.news.txt:   2 to the topic
+freq.3.news.txt:   1 to the toppled
+freq.3.news.txt:   1 to the toppings
+freq.3.news.txt:   1 to the topeka
+freq.3.news.txt:   1 to the topchips
+freq.3.news.txt:   1 otto the top
+freq.3.news.txt:   1 into the topic
+freq.3.twitter.txt: 157 to the top
+freq.3.twitter.txt:  16 into the top
+freq.3.twitter.txt:   3 to the topic
+freq.3.twitter.txt:   1 to the topperettes
+freq.3.twitter.txt:   1 to the topical
+freq.3.twitter.txt:   1 to the topanga
+freq.3.twitter.txt:   1 onto the top
+freq.3.twitter.txt:   1 into the topluvin
+freq.3.blogs.txt:  51 to the center
+freq.3.blogs.txt:  34 into the center
+freq.3.blogs.txt:  11 to the centers
+freq.3.blogs.txt:   1 ygto the center
+freq.3.blogs.txt:   1 rvto the center
+freq.3.blogs.txt:   1 photo the center
+freq.3.blogs.txt:   1 onto the center
+freq.3.news.txt:  82 to the center
+freq.3.news.txt:  22 to the centers
+freq.3.news.txt:  17 into the center
+freq.3.news.txt:   8 to the center's
+freq.3.news.txt:   2 onto the center
+freq.3.news.txt:   1 sacramento the center's
+freq.3.twitter.txt:  13 to the center
+freq.3.twitter.txt:   2 into the center
+freq.3.blogs.txt: 146 to the side
+freq.3.blogs.txt:  17 to the sides
+freq.3.blogs.txt:  17 into the side
+freq.3.blogs.txt:   8 into the sides
+freq.3.blogs.txt:   5 onto the sidewalk
+freq.3.blogs.txt:   4 to the sidewalk
+freq.3.blogs.txt:   4 into the sidewalk
+freq.3.blogs.txt:   3 to the sidelines
+freq.3.blogs.txt:   2 onto the side
+freq.3.blogs.txt:   1 to the sideways
+freq.3.blogs.txt:   1 to the sidewalks
+freq.3.blogs.txt:   1 to the sidepod
+freq.3.blogs.txt:   1 to the sidebar
+freq.3.blogs.txt:   1 onto the sides
+freq.3.news.txt:  66 to the side
+freq.3.news.txt:  14 into the side
+freq.3.news.txt:  13 to the sideline
+freq.3.news.txt:  11 to the sidewalk
+freq.3.news.txt:  11 to the sidelines
+freq.3.news.txt:   7 onto the sidewalk
+freq.3.news.txt:   4 to the sides
+freq.3.news.txt:   4 onto the sidewalks
+freq.3.news.txt:   3 to the sidewalks
+freq.3.news.txt:   2 onto the side
+freq.3.news.txt:   1 to the sidewall
+freq.3.news.txt:   1 kato the sidekick
+freq.3.news.txt:   1 into the sides
+freq.3.twitter.txt:  39 to the side
+freq.3.twitter.txt:   3 into the side
+freq.3.twitter.txt:   2 onto the sidewalk
+freq.3.twitter.txt:   2 into the sidewalk
+freq.3.twitter.txt:   1 to the sidewalks
+freq.3.twitter.txt:   1 to the sidewalk
+freq.3.twitter.txt:   1 to the sidebar
+
+
+bruises from playing
+
+
+of adam sandler's
+
+

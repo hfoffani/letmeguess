@@ -27,7 +27,7 @@ echo
 
 #f "a case of"  cheese soda pretzels beer
 #f "Very early observations on the Bills game: Offense still struggling but the"
-f "struggling but the" crowd referees players defense
+#f "struggling but the" crowd referees players defense
 
 #f "would mean the"
 #f "make me the"
