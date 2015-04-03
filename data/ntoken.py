@@ -1,5 +1,5 @@
 DICTSIZE=100
-CUT=10000
+CUT=[DICTSIZE,100,100,100]
 
 def process():
     print "building diccionary"
@@ -19,32 +19,34 @@ def process():
             ol=",".join(map(str,it)) + "\n"
             odi.write(ol)
 
-    for ng in [ 1,2 ]:
+    for ng in [ 1,2,3,4 ]:
         print "building ngram", ng
 
         f2="freq.%d.all.txt" % ng
         fng = "n%d.csv" % ng
-        if2 = open(f2)
-        with open(fng,"w") as ofng:
-
-            for line in if2:
-                parts = line.split()
-                r = int(parts[0])
-                if r <= CUT:
-                    continue
-                h = True
-                l = []
-                for i in range(1,ng+1):
-                    w = parts[i]
-                    if w not in d:
-                        h = False
-                        break
-                    l.append(d[w])
-                else:
-                    l.append(r)
-                if l and h:
-                    ol= ",".join(map(str,l)) + "\n"
-                    ofng.write(ol)
+        with open(f2) as if2:
+            with open(fng,"w") as ofng:
+                j=0
+                for line in if2:
+                    parts = line.split()
+                    #print "--",parts
+                    r = int(parts[0])
+                    h = True
+                    l = []
+                    for k in range(1,ng+1):
+                        w = parts[k]
+                        if w not in d:
+                            h = False
+                            break
+                        l.append(d[w])
+                    else:
+                        l.append(r)
+                    if l and h:
+                        ol= ",".join(map(str,l)) + "\n"
+                        ofng.write(ol)
+                        j += 1    
+                        if j >= CUT[ng-1]:
+                            break
         
 
 
