@@ -34,7 +34,7 @@ text.read.ngram <- function (n) {
 }
 
 
-wordid <- function( w, di ) {
+text.wordid <- function( w, di ) {
     return(match(w, di$word))
 }
 
@@ -73,7 +73,7 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
 
 text.predict <- function (phrase) {
     bagwords <- unlist(strsplit(phrase, ' '))
-    bag <- wordid(bagwords, di)
+    bag <- text.wordid(bagwords, di)
     # return(bag)
     wid <- text.guessword(bag, n1, n2, n3, n4)
     if (is.na(wid))
