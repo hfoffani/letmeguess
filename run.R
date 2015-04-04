@@ -11,7 +11,8 @@ loadfiles <- function() {
     assign("n4", n4, envir=.GlobalEnv)
 }
 
-# text.predict(c(1,6,20),n1,n2,n3,n4)
+# text.guessoword(c(1,6,20),n1,n2,n3,n4)
+# text.guessword(c(1,6),n1,n2,n3,n4)
 
 # text.predict('how are you')
 # text.predict('how is she')

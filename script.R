@@ -28,14 +28,24 @@ text.wordid <- function( w, di ) {
 }
 
 text.candidates <- function (n, ng, wordsids) {
+    l <- length(wordsids)
     idx <- switch ( n, {
-                NULL     
+                FALSE     
             }, {
-                ng$x1 == wordsids[3]
+                if (l >= 1)
+                    ng$x1 == wordsids[l]
+                else
+                    FALSE
             }, {
-                ng$x1 == wordsids[2] & ng$x2 == wordsids[3]                 
-            }, { 
-                ng$x1 == wordsids[1] & ng$x2 == wordsids[2] & ng$x3 == wordsids[3]                 
+                if (l >= 2)
+                    ng$x1 == wordsids[l-1] & ng$x2 == wordsids[l]
+                else
+                    FALSE
+            }, {
+                if (l >= 3)
+                    ng$x1 == wordsids[l-2] & ng$x2 == wordsids[l-1] &
+                    ng$x3 == wordsids[l]
+                else FALSE
             })
     ies <- data.frame(w=ng$y[idx], c=ng$count[idx])
     return(ies)

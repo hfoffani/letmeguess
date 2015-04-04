@@ -3,21 +3,24 @@ My PLAN:
 ---
 
 scripts to
-coverate.txt and coverage-2gram.txt
+coverage.txt and coverage-2gram.txt
 
-
-0. less that 3 words.
++ 0. less that 3 words. 
 1. load many more words.
-2. test again.
 3. measure time
 4. measure memory
     4.1 repeat with different sizes.
-5. find weights.
+5. test.
+    5.1 test set.
+    5.2 measure error.
+    5.3 find weights.
 6. repeat re transform in R.
     all lowercase.
     ignore numbers and other chars.
     do not ignore 's.
 7. app
+    all data in-memory.
+    weights pre-calculated.
 8. presentation
 
 optional in app:
