@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 DICTSIZE=100
 CUT=[DICTSIZE,100,100,100]
 

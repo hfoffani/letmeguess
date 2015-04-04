@@ -1,6 +1,7 @@
 .Rproj.user
 .Rhistory
 data/*.txt
+data/*.csv
 data/temp/*.txt
 test.html
 textprediction.html
