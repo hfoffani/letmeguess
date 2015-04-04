@@ -28,8 +28,11 @@ text.read.ngram <- function (n) {
     ngr <- read.csv(fi, header=F)
     
     names(ngr) <- unlist(ln[[n]])
+    tot <- sum(ngr$count)
+    ngr$count <- ngr$count / tot
     return(ngr)
 }
+
 
 wordid <- function( w, di ) {
     return(match(w, di))
@@ -50,8 +53,7 @@ text.candidates <- function (n, ng, wordsids) {
     return(ies)
 }
 
-text.predict <- function (wordsids) {
-    weights <- c(0.25, 0.25, 0.25, 0.25)
+text.predict <- function (wordsids, n1, n2, n3, n4) {
     c2 <- text.candidates(2, n2, wordsids)
     c3 <- text.candidates(3, n3, wordsids)
     c4 <- text.candidates(4, n4, wordsids)
@@ -61,6 +63,7 @@ text.predict <- function (wordsids) {
     m$c1 <- n1[n1$y %in% m$w,]$count
     w <- m$w
     m$w <- NULL
+    weights <- c(0.25, 0.25, 0.25, 0.25)
     m <- data.frame(mapply(`*`,m, weights))
     return( w[which.max(rowSums(m, na.rm=T))] )
 }
