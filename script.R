@@ -1,14 +1,4 @@
-# 1. read dictionary   +
-# 2. read 2-gram       +
-#   2.1 read n-gram    +
-# 3. hash 2-gram
-# 4. from 2-gram to dict of lists of pairs
 
-# di <- text.read.dict()
-# n1 <- text.read.ngram(1)
-# n2 <- text.read.ngram(2)
-# n3 <- text.read.ngram(3)
-# n4 <- text.read.ngram(4)
 
 text.read.dict <- function () {
     w <- read.csv('data/di.csv', header=F, stringsAsFactors=F)
@@ -70,12 +60,16 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
 }
 
 text.predict <- function (phrase) {
-    bagwords <- unlist(strsplit(phrase, ' '))
-    bag <- text.wordid(bagwords, di)
-    # return(bag)
+    bag <- text.w(phrase)
     wid <- text.guessword(bag, n1, n2, n3, n4)
     if (is.na(wid))
         return("Whatever!")
     w <- di[di$id==wid,]$w
     return(w)
+}
+
+text.w <- function (phrase) {
+    bagwords <- unlist(strsplit(phrase, ' '))
+    bag <- text.wordid(bagwords, di)
+    return(bag)
 }
