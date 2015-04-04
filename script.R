@@ -33,11 +33,9 @@ text.read.ngram <- function (n) {
     return(ngr)
 }
 
-
 text.wordid <- function( w, di ) {
     return(match(w, di$word))
 }
-
 
 text.candidates <- function (n, ng, wordsids) {
     idx <- switch ( n, {
