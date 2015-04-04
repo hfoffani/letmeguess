@@ -24,7 +24,7 @@ text.read.ngram <- function (n) {
 }
 
 text.wordid <- function( w, di ) {
-    return(match(w, di$word))
+    return( di[match(w, di$word),]$id )
 }
 
 text.candidates <- function (n, ng, wordsids) {
@@ -61,17 +61,18 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
     m$c1 <- n1[n1$y %in% m$w,]$count
     w <- m$w
     m$w <- NULL
+    m <- m[c("c1","c2","c3","c4")]     
     # weight.
     if (is.null(weights))
         weights<-c(0.25, 0.25, 0.25, 0.25)
     m <- data.frame(mapply(`*`,m, weights))
-
+    # print(m)
     return( w[which.max(rowSums(m, na.rm=T))] )
 }
 
-text.predict <- function (phrase) {
+text.predict <- function (phrase, weights=NULL) {
     bag <- text.w(phrase)
-    wid <- text.guessword(bag, n1, n2, n3, n4)
+    wid <- text.guessword(bag, n1, n2, n3, n4, weights)
     if (is.na(wid))
         return("Whatever!")
     w <- di[di$id==wid,]$w

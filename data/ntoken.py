@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
-DICTSIZE=100
-CUT=[DICTSIZE,100,100,100]
+DICTSIZE=10000
+CUT=[DICTSIZE,1000000,1000000,1000000]
 
 def process():
     print "building diccionary"

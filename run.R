@@ -11,6 +11,13 @@ loadfiles <- function() {
     assign("n4", n4, envir=.GlobalEnv)
 }
 
+footprint <- function (units="Kb") {
+    cat('DI', '\t', format(object.size(di), units=units), '\n')
+    cat('N1', '\t', format(object.size(n1), units=units), '\n')
+    cat('N2', '\t', format(object.size(n2), units=units), '\n')
+    cat('N3', '\t', format(object.size(n3), units=units), '\n')
+    cat('N4', '\t', format(object.size(n4), units=units), '\n')
+}
 # text.guessoword(c(1,6,20),n1,n2,n3,n4)
 # text.guessword(c(1,6),n1,n2,n3,n4)
 

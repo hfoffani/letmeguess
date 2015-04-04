@@ -6,10 +6,11 @@ scripts to
 coverage.txt and coverage-2gram.txt
 
 + 0. less that 3 words. 
-1. load many more words.
++ 1. load many more words.
 3. measure time
 4. measure memory
-    4.1 repeat with different sizes.
+    + 4.1 function
+    4.2 repeat with different sizes.
 5. test.
     5.1 test set.
     5.2 measure error.
@@ -50,3 +51,39 @@ awk 'BEGIN { acum=0;t=50615233; } { acum+=$1; print NR, acum/t; }' freq.1.all.tx
 awk 'BEGIN { acum=0;t=50615230; } { acum+=$1; print NR, acum/t; }' freq.2.all.txt | sed 's/,/./' > coverage-2gram.txt
 idem coverage 2-gram
 
+
+
+FOOTPRINT:
+> footprint()     # N=100
+DI   6.6 Kb 
+N1 	 1.9 Kb 
+N2 	 2.4 Kb 
+N3 	 2.9 Kb 
+N4 	 3.4 Kb 
+> footprint()
+DI   611.5 Kb    # N=10,000
+N1 	 117.9 Kb 
+N2 	 157.1 Kb 
+N3 	 196.3 Kb 
+N4 	 235.5 Kb 
+> footprint()    # N=10,000  M=100,000
+DI   611.5 Kb 
+N1 	 117.9 Kb 
+N2 	 1563.4 Kb 
+N3 	 1954.1 Kb 
+N4 	 2344.8 Kb 
+> footprint()    # N=10,000  M=1,000,000
+DI   611.5 Kb 
+N1 	 117.9 Kb 
+N2 	 15625.9 Kb 
+N3 	 19532.2 Kb 
+N4 	 23438.6 Kb 
+
+
+
+    shiny limits:
+        small   256 MB
+        medium  512 MB
+        large	1024 MB
+        xlarge	2048 MB
+        xxlarge	4096 MB
