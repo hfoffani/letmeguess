@@ -5,6 +5,10 @@ My PLAN:
 scripts to
 coverage.txt and coverage-2gram.txt
 
+packages:
+    timeit
+    data.table
+
 + 0. less that 3 words. 
 + 1. load many more words.
 3. measure time
@@ -90,6 +94,12 @@ N1 	 117.9 Kb
 N2 	 15625.9 Kb 
 N3 	 19532.2 Kb 
 N4 	 23438.6 Kb 
+> footprint()    # N=10,000  M=1,000,000 using datatables.
+DI      611.5 Kb 
+N1 	 118.6 Kb 
+N2 	 15626.6 Kb 
+N3 	 19533 Kb 
+N4 	 23439.5 Kb 
 
 
 
