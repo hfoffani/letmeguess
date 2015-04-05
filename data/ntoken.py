@@ -1,5 +1,7 @@
 #!/usr/bin/python
 
+import sys
+
 DICTSIZE=10000
 CUT=[DICTSIZE,1000000,1000000,1000000]
 
@@ -12,13 +14,13 @@ def process():
         for line in if1:
             parts = line.split()
             w = parts[1]
-            d[w] = i
+            d[i] = w
             i+=1
             if i > DICTSIZE:
                 break
     with open("di.csv","w") as odi:
-        for it in d.items():
-            ol=",".join(map(str,it)) + "\n"
+        for k in sorted(d.iterkeys()):
+            ol = d[k] + "," + str(k) + "\n"
             odi.write(ol)
 
     for ng in [ 1,2,3,4 ]:

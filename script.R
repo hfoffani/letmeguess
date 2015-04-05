@@ -3,6 +3,8 @@ library(data.table)
 text.read.dict <- function () {
     w <- read.csv('data/di.csv', header=F, stringsAsFactors=F)
     names(w) <- c('word','id')
+    w <- data.table(w)
+    setkey(w, word)
     return(w)
 }
 
@@ -34,7 +36,10 @@ text.read.ngram <- function (n) {
 }
 
 text.wordid <- function( w, di ) {
-    return( di[match(w, di$word),]$id )
+    return( di[J(w),]$id )
+}
+text.idword <- function( id, di) {
+    return( di[id==wid,]$word )
 }
 
 text.candidates <- function (n, ng, wordsids) {
@@ -125,12 +130,14 @@ text.predict <- function (phrase, weights=NULL) {
     wid <- text.guessword(bag, n1, n2, n3, n4, weights)
     if (!length(wid) || is.na(wid))
         return("Whatever!")
-    w <- di[di$id==wid,]$w
+    w <- di[id==wid,]$w
     return(w)
 }
 
 text.w <- function (phrase) {
-    bagwords <- unlist(strsplit(phrase, ' '))
+    l <- strsplit(phrase, " ", fixed=F)
+    # bagwords <- unlist(l)
+    bagwords <- .Internal(unlist(l,F,F))
     bag <- text.wordid(bagwords, di)
     return(bag)
 }

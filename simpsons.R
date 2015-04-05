@@ -11,6 +11,6 @@ bartreplies <- function(dictionary) {
     return( dictionary$Word[s] )
 }
 
-simpsons.predict <- function(dummy) {
+simpsons.predict <- function(dummy1, dummy2) {
     return (bartreplies(simdict))
 }
