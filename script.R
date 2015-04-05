@@ -105,6 +105,7 @@ text.candidates.n4 <- function (n4, wordsids) {
 }
 
 text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
+    lastw <- wordsids[length(wordsids)]
     c2 <- text.candidates.n2(n2, wordsids)
     c3 <- text.candidates.n3(n3, wordsids)
     c4 <- text.candidates.n4(n4, wordsids)
@@ -113,14 +114,19 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
     m <- merge(m, n1, by="y", suffixes=c(".c4",".c1"))
     setnames(m, 1:5, c('w','c2','c3','c4','c1'))
     m$c1 <- m$c1 / TOTAL
+    # doesn't improve if avoid repeating last word.
+    # m$c1[lastw] <- 0
     w <- m$w
-    # m$w <- NULL
-    m <- m[,c("c1","c2","c3","c4"),with=F]     
-    # weight.
-    if (is.null(weights))
-        weights<-c(0.25, 0.25, 0.25, 0.25)
+    m <- m[,c("c1","c2","c3","c4"),with=F]
+    if (is.null(weights)) {
+        # standard
+        # weights <- c(0.25, 0.25, 0.25, 0.25)
+        # best so far
+        weights <- c(0.001, 0.05, 0.15, 0.899)
+    }
     m <- data.frame(mapply(`*`,m, weights))
-    # print(m)
+    # print(head(m))
+    # print(head(w))
     return( w[which.max(rowSums(m, na.rm=T))] )
 }
 

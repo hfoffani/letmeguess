@@ -22,13 +22,14 @@ packages:
     5.1 + test set.
     5.2 + measure error.    14%-16% acierto -- 16.4%
 6. refine model.
-    6.1 use MLE. maximum likelihood estimate.
+    6.1 + use MLE. maximum likelihood estimate.
     6.2 interpolation.
     6.3 find weights.
 7. tune-up.
-    7.1 performance in unlist and operator [[
-    7.2 di como data.table con indice word.
-    7.3 di sorted, leida secuencialmente con idx == id.
+    + 7.1 performance in unlist and operator [[
+        sigue igual.
+    + 7.2 di como data.table con indice word.
+    + 7.3 di sorted, leida secuencialmente con idx == id.
 6. mockup app.
     6.1 shiny.
     6.2 use simpsons. use load(data).
