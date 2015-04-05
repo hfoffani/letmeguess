@@ -20,9 +20,9 @@ packages:
     + 4.2 repeat with different sizes.
 5. test.
     5.1 + test set.
-    5.2 + measure error.    14%-16% acierto
+    5.2 + measure error.    14%-16% acierto -- 16.3%
 6. refine model.
-    6.1 use MLE.
+    6.1 use MLE. maximum likelihood estimate.
     6.2 interpolation.
     6.3 find weights.
 7. tune-up.

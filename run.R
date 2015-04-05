@@ -9,6 +9,7 @@ loadfiles <- function() {
     assign("n2", n2, envir=.GlobalEnv)
     assign("n3", n3, envir=.GlobalEnv)
     assign("n4", n4, envir=.GlobalEnv)
+    assign("TOTAL", sum(n1$count), envir=.GlobalEnv)
 }
 
 footprint <- function (units="Kb") {

@@ -18,8 +18,8 @@ text.read.ngram <- function (n) {
     ngr <- read.csv(fi, header=F)
     
     names(ngr) <- unlist(ln[[n]])
-    tot <- sum(ngr$count)
-    ngr$count <- ngr$count / tot
+    # tot <- sum(ngr$count)
+    # ngr$count <- ngr$count / tot
     dfngr <- data.table(ngr)
     switch (n, {
         setkey(dfngr, y)
@@ -42,42 +42,78 @@ text.candidates <- function (n, ng, wordsids) {
     idx <- switch ( n, {
                 NULL     
             }, {
-                if (l >= 1)
+                if (l >= 1) {
                     ng[J(wordsids[l]),
                         c('y','count'),with=F]
-                else
+                } else
                     data.table(y=integer(0), count=numeric(0))
             }, {
-                if (l >= 2)
+                if (l >= 2) {
                     ng[J(wordsids[l-1],wordsids[l]),
                         c('y','count'),with=F]
-                else
+                } else
                     data.table(y=integer(0), count=numeric(0))
             }, {
-                if (l >= 3)
+                if (l >= 3) {
                     ng[J(wordsids[l-2],wordsids[l-1],wordsids[l]),c('y','count'),with=F]
-                else
+                } else
                     data.table(y=integer(0), count=numeric(0))
             })
     # ies <- data.frame(w=idx$y, c=idx$count)
     return(idx)
 }
 
+text.candidates.n2 <- function (n2, wordsids) {
+    l <- length(wordsids)
+    if (l >= 1) {
+        w <- wordsids[l]
+        res <- n2[J(w), c('y','count'), with=F]
+        res$count <- res$count / sum(res$count)
+        return(res)
+    }
+    return( data.table(y=integer(0), count=numeric(0)) )
+}
+
+text.candidates.n3 <- function (n3, wordsids) {
+    l <- length(wordsids)
+    if (l >= 2) {
+        w2 <- wordsids[l]
+        w1 <- wordsids[l-1]
+        res <- n3[J(w1,w2), c('y','count'), with=F]
+        res$count <- res$count / sum(res$count)
+        return(res)
+    }
+    return( data.table(y=integer(0), count=numeric(0)) )
+}
+
+text.candidates.n4 <- function (n4, wordsids) {
+    l <- length(wordsids)
+    if (l >= 3) {
+        w3 <- wordsids[l]
+        w2 <- wordsids[l-1]
+        w1 <- wordsids[l-2]
+        res <- n4[J(w1,w2,w3), c('y','count'), with=F]
+        res$count <- res$count / sum(res$count)
+        return(res)
+    }
+    return( data.table(y=integer(0), count=numeric(0)) )
+}
+
 text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
-    c2 <- text.candidates(2, n2, wordsids)
-    c3 <- text.candidates(3, n3, wordsids)
-    c4 <- text.candidates(4, n4, wordsids)
+    c2 <- text.candidates.n2(n2, wordsids)
+    c3 <- text.candidates.n3(n3, wordsids)
+    c4 <- text.candidates.n4(n4, wordsids)
     m <- merge(c2, c3, by="y", all=T, suffixes=c(".c2",".c3"))
     m <- merge(m, c4, by="y", all=T)
     m <- merge(m, n1, by="y", suffixes=c(".c4",".c1"))
     setnames(m, 1:5, c('w','c2','c3','c4','c1'))
-    # m$c1 <- n1[n1$y %in% m$w,]$count
+    m$c1 <- m$c1 / TOTAL
     w <- m$w
     # m$w <- NULL
     m <- m[,c("c1","c2","c3","c4"),with=F]     
     # weight.
     if (is.null(weights))
-        weights<-c(0.0001, 1, 5, 10)
+        weights<-c(0.25, 0.25, 0.25, 0.25)
     m <- data.frame(mapply(`*`,m, weights))
     # print(m)
     return( w[which.max(rowSums(m, na.rm=T))] )
