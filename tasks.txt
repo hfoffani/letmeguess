@@ -13,20 +13,20 @@ packages:
 + 1. load many more words.
 3. measure time
     + 3.1 ok upto 10K/100K . bad 10K/1M
-    3.2 profile.
-        timeit package
+    + 3.2 profile.
+        + timeit package
 4. measure memory
     + 4.1 function
     + 4.2 repeat with different sizes.
 5. test.
     5.1 + test set.
-
-
-    5.2 + measure error.    16% error!
+    5.2 + measure error.    14%-16% acierto
 6. refine model.
     6.1 use MLE.
     6.2 interpolation.
     6.3 find weights.
+7. tune-up.
+    7.1 performance in unlist and operator [[
 6. mockup app.
     6.1 shiny.
     6.2 use simpsons. use load(data).
