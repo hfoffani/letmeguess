@@ -74,7 +74,7 @@ text.predict <- function (phrase, weights=NULL) {
     bag <- text.w(phrase)
     bag <- bag[!is.na(bag)]
     wid <- text.guessword(bag, n1, n2, n3, n4, weights)
-    if (is.na(wid))
+    if (!length(wid) || is.na(wid))
         return("Whatever!")
     w <- di[di$id==wid,]$w
     return(w)

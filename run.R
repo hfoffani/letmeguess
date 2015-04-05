@@ -24,4 +24,13 @@ footprint <- function (units="Kb") {
 # text.predict('how are you')
 # text.predict('how is she')
 
+#testsmall <- testset[sample(nrow(testset), 100),]
+
+#tmp <- timeit({ test.accuracy(testset, simpsons.predict) })
+#summary(tmp)
+#plot(tmp)
+#mean(tmp)
+# 100 en 27 seg.
+
+
 
