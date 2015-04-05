@@ -16,7 +16,14 @@ coverage.txt and coverage-2gram.txt
 5. test.
     5.1 test set.
     5.2 measure error.
-    5.3 find weights.
+6. refine model.
+    6.1 use MLE.
+    6.2 interpolation.
+    6.3 find weights.
+6. mockup app.
+    6.1 shiny.
+    6.2 use simpsons.
+    6.3 to-lower and use text.w
 6. repeat re transform in R.
     all lowercase.
     ignore numbers and other chars.
