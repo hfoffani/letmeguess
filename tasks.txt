@@ -43,7 +43,6 @@ optional in app:
         if Names -> capital
         via dictionary.
 
-
     count symbols
         3106 hashtags    
     count numbers
