@@ -23,3 +23,5 @@ footprint <- function (units="Kb") {
 
 # text.predict('how are you')
 # text.predict('how is she')
+
+

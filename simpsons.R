@@ -10,3 +10,7 @@ bartreplies <- function(dictionary) {
     s <- sample(nrow(dictionary), 1, prob=dictionary$Probs)
     return( dictionary$Word[s] )
 }
+
+simpsons.predict <- function(dummy) {
+    return (bartreplies(simdict))
+}

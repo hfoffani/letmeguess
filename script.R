@@ -64,7 +64,7 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
     m <- m[c("c1","c2","c3","c4")]     
     # weight.
     if (is.null(weights))
-        weights<-c(0.25, 0.25, 0.25, 0.25)
+        weights<-c(0.0001, 1, 5, 10)
     m <- data.frame(mapply(`*`,m, weights))
     # print(m)
     return( w[which.max(rowSums(m, na.rm=T))] )
@@ -72,6 +72,7 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
 
 text.predict <- function (phrase, weights=NULL) {
     bag <- text.w(phrase)
+    bag <- bag[!is.na(bag)]
     wid <- text.guessword(bag, n1, n2, n3, n4, weights)
     if (is.na(wid))
         return("Whatever!")
