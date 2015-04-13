@@ -28,9 +28,6 @@ do
         now=`date "+%d/%m %H:%M"`
         echo sort ngram $ng - $now
         sort n$ng.$x.txt > sn$ng.$x.txt
-        now=`date "+%d/%m %H:%M"`
-        echo stat ngram $ng - $now
-        uniq -c sn$ng.$x.txt | sort -nr > freq.$ng.$x.txt
     done
     now=`date "+%d/%m %H:%M"`
     echo END $x - $now

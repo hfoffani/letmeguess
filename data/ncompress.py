@@ -8,7 +8,7 @@ CUT=[DICTSIZE,1000000,1000000,1000000]
 def process():
     print "building diccionary"
     fd="freq.1.all.txt"
-    d = {}
+    d = { 0:'@' }
     with open(fd) as if1:
         i=1
         for line in if1:
