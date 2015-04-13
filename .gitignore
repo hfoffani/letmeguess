@@ -2,7 +2,7 @@
 .Rhistory
 data/*.txt
 data/*.csv
-data/temp/*.txt
+data/temp*/*.txt
 test.html
 textprediction.html
 *_cache
