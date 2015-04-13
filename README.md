@@ -4,6 +4,8 @@ Predict next word.
 
 ### pre-process
 
+Add UTF-8 BOM and change to unix line endings.
+
 With the help of some scripts extract the n-grams lists.
 Tool: tokenize.sh
 Uses: towords.sh, sample.sh, ngram.sh

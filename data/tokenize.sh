@@ -13,6 +13,7 @@ do
     now=`date "+%d/%m %H:%M"`
     echo words - $now
     ./towords.sh $s > n1.$x.txt
+    rm $s
     now=`date "+%d/%m %H:%M"`
     echo ngram 2 - $now
     ./ngram.sh 2 n1.$x.txt > n2.$x.txt
@@ -28,6 +29,7 @@ do
         now=`date "+%d/%m %H:%M"`
         echo sort ngram $ng - $now
         sort n$ng.$x.txt > sn$ng.$x.txt
+        rm n$ng.$x.txt
     done
     now=`date "+%d/%m %H:%M"`
     echo END $x - $now

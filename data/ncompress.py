@@ -8,20 +8,22 @@ CUT=[DICTSIZE,1000000,1000000,1000000]
 def process():
     print "building diccionary"
     fd="freq.1.all.txt"
-    d = { 0:'@' }
+    d = { '@': 1 }
     with open(fd) as if1:
-        i=1
+        i=2
         for line in if1:
             parts = line.split()
             w = parts[1]
-            d[i] = w
+            if "@" in w: continue
+            d[w] = i
             i+=1
             if i > DICTSIZE:
                 break
     with open("di.csv","w") as odi:
         for k in sorted(d.iterkeys()):
-            ol = d[k] + "," + str(k) + "\n"
+            ol = str(d[k]) + "," + k + "\n"
             odi.write(ol)
+    # sys.exit(0)
 
     for ng in [ 1,2,3,4 ]:
         print "building ngram", ng
@@ -33,18 +35,19 @@ def process():
                 j=0
                 for line in if2:
                     parts = line.split()
-                    #print "--",parts
+                    # print len(parts),"--",parts
                     r = int(parts[0])
                     h = True
                     l = []
-                    for k in range(1,ng+1):
-                        w = parts[k]
-                        if w not in d:
-                            h = False
-                            break
-                        l.append(d[w])
-                    else:
-                        l.append(r)
+                    if len(parts) > ng:
+                        for k in range(1,ng+1):
+                            w = parts[k]
+                            if w not in d:
+                                h = False
+                                break
+                            l.append(d[w])
+                        else:
+                            l.append(r)
                     if l and h:
                         ol= ",".join(map(str,l)) + "\n"
                         ofng.write(ol)
