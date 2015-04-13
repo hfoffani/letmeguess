@@ -18,5 +18,5 @@ awk -v n=$1 'BEGIN {
     print buf;
 
 }' $2 |
-sed -e 's/ $//'
+sed -e 's/ $//' -e '/ @/d'
 
