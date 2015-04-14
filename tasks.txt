@@ -2,8 +2,26 @@ My PLAN:
 
 ---
 
+
+
 scripts to
 coverage.txt and coverage-2gram.txt
+
+app:
+    package data.table in shiny
+    1. + basic + text-box + button + result
+    2. + #1 + simpson
+    3. + #2 + filter input
+    4. + #3 + no-button. ya algo hace...
+    5. #4 + poner un @ al ppio.
+    6. #5 + model predict.
+    7. #6 + min stats.
+    8. #7 + JS <tab>. ¿¿???
+
+presentation.
+
+add STOP to current model.
+
 
 packages:
     timeit
@@ -34,15 +52,15 @@ packages:
         sigue igual.
     + 7.2 di como data.table con indice word.
     + 7.3 di sorted, leida secuencialmente con idx == id.
-6. mockup app.
-    6.1 shiny.
-    6.2 use simpsons. use load(data).
-    6.3 to-lower and use text.w
-    6.4 performance
-6. repeat re transform in R.
-    all lowercase.
-    ignore numbers and other chars.
-    do not ignore 's.
++ 6. mockup app.
+    + 6.1 shiny.
+    + 6.2 use simpsons. use load(data).
+    + 6.3 to-lower and use text.w
+    + 6.4 performance
++ 6. repeat re transform in R.
+    + all lowercase.
+    + ignore numbers and other chars.
+    + do not ignore 's.
 7. app
     all data in-memory.
     weights pre-calculated.
