@@ -21,17 +21,29 @@ bartreplies <- function(dictionary) {
 }
 
 simpsons.predict <- function(dummy1, dummy2) {
-    cat('predicting\n')
+    # cat('predicting\n')
     return (bartreplies(simdict))
 }
 
 simdict <- simpsons()
 
+filter <- function(text) {
+    # falta el tab y el return.
+    regx <- '[^ \\.\'A-Za-z]'
+    txt <- gsub(regx, '', text)
+    txt <- gsub(".*\\.", " ", txt)
+    txt <- gsub(" +", " ", txt)
+    return (tolower(txt))
+}
+
+
 shinyServer(function(input, output) {
   
   output$predictedWord <- renderText({
       # t <- 'hola'
-      t <- paste('@', ' ', input$userText)
+      # t <- paste('@', ' ', input$userText)
+      t <- paste('', input$userText)
+      t <- filter(t)
       t <- simpsons.predict(t,'xxx')
       t
       })
