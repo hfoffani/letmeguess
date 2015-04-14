@@ -9,6 +9,7 @@ coverage.txt and coverage-2gram.txt
 
 app:
     package data.table in shiny
+    Always predict!!!
     1. + basic + text-box + button + result
     2. + #1 + simpson
     3. + #2 + filter input
