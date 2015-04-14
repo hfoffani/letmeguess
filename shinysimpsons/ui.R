@@ -31,6 +31,7 @@ shinyUI(pageWithSidebar(
   # Show a textbox and a text.
   mainPanel(
       inputTextarea('userText', '', 5, 70 ),
+      # textInput('userText', label='write'),
       textOutput("predictedWord")
   )
 ))
