@@ -6,11 +6,23 @@ simpsons <- function() {
     return(words)
 }
 
-bartreplies <- function(dictionary) {
+simpsons.bartreplies <- function(dictionary) {
     s <- sample(nrow(dictionary), 1, prob=dictionary$Probs)
     return( dictionary$Word[s] )
 }
 
-simpsons.predict <- function(dummy1, dummy2) {
-    return (bartreplies(simdict))
+simpsons.predict <- function(dummy1) {
+    t <- simpsons.filter(dummy1)
+    return (simpsons.bartreplies(simdict))
+}
+
+simdict <- simpsons()
+
+simpsons.filter <- function(text) {
+    # falta el tab y el return.
+    regx <- '[^ \\.\'A-Za-z]'
+    txt <- gsub(regx, '', text)
+    txt <- gsub(".*\\.", " ", txt)
+    txt <- gsub(" +", " ", txt)
+    return (tolower(txt))
 }

@@ -5,6 +5,7 @@ n1 <- readRDS('data/n1.rds')
 n2 <- readRDS('data/n2.rds')
 n3 <- readRDS('data/n3.rds')
 n4 <- readRDS('data/n4.rds')
+TOTAL <- sum(n1$count)
 
 text.read.dict <- function () {
     w <- read.csv('data/di.csv', header=F, stringsAsFactors=F)

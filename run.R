@@ -4,6 +4,7 @@ processcsv <- function() {
     n2 <- text.read.ngram(2)
     n3 <- text.read.ngram(3)
     n4 <- text.read.ngram(4)
+    # TOTAL <- sum(n1$count)
     saveRDS(di, 'data/di.rds')
     saveRDS(n1, 'data/n1.rds')
     saveRDS(n2, 'data/n2.rds')
