@@ -1,6 +1,7 @@
 #!/usr/bin/python
 
 import sys
+import operator
 
 DICTSIZE=10000
 CUT=[DICTSIZE,1000000,1000000,1000000]
@@ -20,8 +21,9 @@ def process():
             if i > DICTSIZE:
                 break
     with open("di.csv","w") as odi:
-        for k in sorted(d.iterkeys()):
-            ol = str(d[k]) + "," + k + "\n"
+        # ordered by value, which is the code.
+        for k,v in sorted(d.items(), key=operator.itemgetter(1)):
+            ol = k + "," + str(v) + "\n"
             odi.write(ol)
     # sys.exit(0)
 
