@@ -2,8 +2,6 @@ My PLAN:
 
 ---
 
-
-
 scripts to
 coverage.txt and coverage-2gram.txt
 
@@ -14,14 +12,19 @@ app:
     2. + #1 + simpson
     3. + #2 + filter input
     4. + #3 + no-button. ya algo hace...
-    5. #4 + poner un @ al ppio.
-    6. #5 + model predict.
-    7. #6 + min stats.
-    8. #7 + JS <tab>. ¿¿???
+    5. filtrado en script.R
+    6. poner un @ al ppio.
+    7. copiar script.R como helper.R a subdir de shiny
+    8. llevar los rds a dir data de shiny
+    9. poner los readRDS y source en server.R
+    10. llamar a text.predict con el text$input.
+    11. #5 + model predict.
+    12. #6 + min stats.
+    13. #7 + JS <tab>. ¿¿???
 
 presentation.
 
-add STOP to current model.
++ add STOP to current model.
 
 
 packages:

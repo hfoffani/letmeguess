@@ -1,5 +1,11 @@
 library(data.table)
 
+di <- readRDS('data/di.rds')
+n1 <- readRDS('data/n1.rds')
+n2 <- readRDS('data/n2.rds')
+n3 <- readRDS('data/n3.rds')
+n4 <- readRDS('data/n4.rds')
+
 text.read.dict <- function () {
     w <- read.csv('data/di.csv', header=F, stringsAsFactors=F)
     names(w) <- c('word','id')
@@ -131,6 +137,7 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
 }
 
 text.predict <- function (phrase, weights=NULL) {
+    phrase <- text.filter(phrase)
     bag <- text.w(phrase)
     bag <- bag[!is.na(bag)]
     wid <- text.guessword(bag, n1, n2, n3, n4, weights)
@@ -140,10 +147,22 @@ text.predict <- function (phrase, weights=NULL) {
     return(w)
 }
 
+text.filter <- function(text) {
+    # falta el tab y el return.
+    regx <- '[^ \\.\'A-Za-z]'
+    txt <- gsub(regx, ' ', text)
+    txt <- gsub(".*\\.", " ", txt)
+    txt <- paste("@ ", txt)
+    txt <- gsub(" +", " ", txt)
+    txt <- tolower(txt)
+    return (txt)
+}
+
 text.w <- function (phrase) {
     l <- strsplit(phrase, " ", fixed=F)
     # bagwords <- unlist(l)
     bagwords <- .Internal(unlist(l,F,F))
     bag <- text.wordid(bagwords, di)
+    bag <- bag[!is.na(bag)]
     return(bag)
 }

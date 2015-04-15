@@ -1,15 +1,14 @@
-loadfiles <- function() {
+processcsv <- function() {
     di <- text.read.dict()
     n1 <- text.read.ngram(1)
     n2 <- text.read.ngram(2)
     n3 <- text.read.ngram(3)
     n4 <- text.read.ngram(4)
-    assign("di", di, envir=.GlobalEnv)
-    assign("n1", n1, envir=.GlobalEnv)
-    assign("n2", n2, envir=.GlobalEnv)
-    assign("n3", n3, envir=.GlobalEnv)
-    assign("n4", n4, envir=.GlobalEnv)
-    assign("TOTAL", sum(n1$count), envir=.GlobalEnv)
+    saveRDS(di, 'data/di.rds')
+    saveRDS(n1, 'data/n1.rds')
+    saveRDS(n2, 'data/n2.rds')
+    saveRDS(n3, 'data/n3.rds')
+    saveRDS(n4, 'data/n4.rds')
 }
 
 footprint <- function (units="Kb") {
@@ -19,6 +18,14 @@ footprint <- function (units="Kb") {
     cat('N3', '\t', format(object.size(n3), units=units), '\n')
     cat('N4', '\t', format(object.size(n4), units=units), '\n')
 }
+
+
+# di <- readRDS('data/di.rds')
+# n1 <- readRDS('data/n1.rds')
+# n2 <- readRDS('data/n2.rds')
+# n3 <- readRDS('data/n3.rds')
+# n4 <- readRDS('data/n4.rds')
+
 # text.guessoword(c(1,6,20),n1,n2,n3,n4)
 # text.guessword(c(1,6),n1,n2,n3,n4)
 
