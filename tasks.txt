@@ -18,9 +18,10 @@ app:
     8. + llevar los rds a dir data de shiny
     9. + poner los readRDS y source en server.R
     10. + llamar a text.predict con el text$input.
-    11. #5 + model predict.
-    12. #6 + min stats.
-    13. #7 + JS <tab>. ¿¿???
+    11. + model predict.
+    12. + min stats.
+    13. X + JS <tab>. can't make it work. use a button instead.
+    14. + . button. 
     14. ojo con 3.3 goo.gl etc.
 
 presentation.

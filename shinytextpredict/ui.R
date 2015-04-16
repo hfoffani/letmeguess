@@ -14,15 +14,6 @@ inputTextarea <- function(inputId, value="", nrows, ncols) {
     )
 }
 
-# shortcut <- function(inputId, value = 0) {
-#     tagList(
-#         singleton(tags$head(tags$script(src = "shortcut.js"))),
-#         tags$shortcut(id = inputId,
-#                     class = "inputshortcut",
-#                     as.character(value))
-#     )
-# }
-
 shinyUI(pageWithSidebar(
     
     # Application title

@@ -249,3 +249,16 @@ $.extend(shortcutBinding, {
 });
 
 Shiny.inputBindings.register(shortcutBinding);
+
+/*
+add this to ui.R
+
+shortcut <- function(inputId, value = 0) {
+    tagList(
+        singleton(tags$head(tags$script(src = "shortcut.js"))),
+        tags$shortcut(id = inputId,
+                    class = "inputshortcut",
+                    as.character(value))
+    )
+}
+*/
