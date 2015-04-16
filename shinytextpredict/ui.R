@@ -24,21 +24,19 @@ inputTextarea <- function(inputId, value="", nrows, ncols) {
 # }
 
 shinyUI(pageWithSidebar(
-  
-  # Application title
-  headerPanel("Guess next word"),
-  
-  # something
-  sidebarPanel(
-    # sliderInput("bins", "Number of bins:", min = 1, max = 50, value = 30)
-  ),
-  
-  # Show a textbox and a text.
-  mainPanel(
-      inputTextarea('userText', '', 5, 70 ),
-      # textInput('userText', label='write'),
-      textOutput("predictedWord"),
-      textOutput("test"),
-      actionButton("addword", label = "Add word")
-  )
+    
+    # Application title
+    headerPanel("Guess next word"),
+    
+    # something
+    sidebarPanel(
+        # sliderInput("bins", "Number of bins:", min = 1, max = 50, value = 30)
+    ),
+    
+    # a textbox and a button
+    mainPanel(
+        inputTextarea("userText", "", 5, 70 ),
+        textOutput("_a_place_holder_"),
+        actionButton("addword", label = textOutput("addword_label"))
+    )
 ))

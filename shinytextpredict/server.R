@@ -8,39 +8,32 @@ library(shiny)
 source("helper.R")
 fpredict <- text.predict
 
-lastpred <- ''
-shinyServer(function(input, output) {
+shinyServer(function(input, output, session) {
   
-#     addlastpred <- eventReactive(input$addword, {
-#         paste(input$userText, ' ', output$predictedWord)
-#     })
+    # use of reactive values
+    values <- reactiveValues()
+    values$prediction <- fpredict("")
+    
+    # observe the userText.
+    observe({
+        text <- input$userText
+        prediction <- fpredict(text)
+        isolate(values$prediction <- prediction)
+    })
+    
+    # use a hidden label to pass data to a control in ui.R
+    output$addword_label <- renderText({
+        values$prediction
+    })
+    
+    # observe the button
+    observe({
+        if(input$addword == 0) return()
+        isolate({
+            updateTextInput(session, "userText",
+                            value = paste(input$userText, values$prediction))
+        })
+    })
 
-  output$predictedWord <- renderText({
-      t <- paste('', input$userText)
-      t <- fpredict(t)
-      lastpred <- t
-      t
-      })
-
-#   output$test<- renderText({
-#       addlastpred()
-#   })
-})
-
-# shinyServer(function(input, output, clientData, session) {
-#     
-#     observe({
-#         currentUserText <- input$userText
-#         output$predictedWord <- renderText({
-#             t <- paste('', input$userText)
-#             t <- fpredict(t)
-#             lastpred <- t
-#             t
-#         })
-# 
-#         updateTextarea(session, "userText",
-#             value = paste(currentUserText, ' ', lastpred)
-#         )
-#     })
-# })
+})  
 
