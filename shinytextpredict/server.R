@@ -12,18 +12,18 @@ shinyServer(function(input, output, session) {
   
     # use of reactive values
     values <- reactiveValues()
-    values$prediction <- fpredict("")
+    values$predictions <- fpredict("")
     
     # observe the userText.
     observe({
         text <- input$userText
-        prediction <- fpredict(text)
-        isolate(values$prediction <- prediction)
+        predictions <- fpredict(text)
+        isolate(values$predictions <- predictions)
     })
     
     # use a hidden label to pass data to a control in ui.R
     output$addword_label <- renderText({
-        values$prediction
+        values$predictions[1]
     })
     
     # observe the button
@@ -31,7 +31,7 @@ shinyServer(function(input, output, session) {
         if(input$addword == 0) return()
         isolate({
             updateTextInput(session, "userText",
-                            value = paste(input$userText, values$prediction))
+                            value = paste(input$userText, values$predictions[1]))
         })
     })
 

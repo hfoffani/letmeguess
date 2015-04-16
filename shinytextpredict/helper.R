@@ -134,7 +134,9 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
     m <- data.frame(mapply(`*`,m, weights))
     # print(head(m))
     # print(head(w))
-    return( w[which.max(rowSums(m, na.rm=T))] )
+    top3 <- w[order(rowSums(m, na.rm=T), decreasing=T)][1:3]
+    # top1 <- w[which.max(rowSums(m, na.rm=T))] 
+    return( top3 )
 }
 
 text.predict <- function (phrase, weights=NULL) {
@@ -143,8 +145,13 @@ text.predict <- function (phrase, weights=NULL) {
     bag <- bag[!is.na(bag)]
     wid <- text.guessword(bag, n1, n2, n3, n4, weights)
     if (!length(wid) || is.na(wid))
-        return("Whatever!")
-    w <- di[id==wid,]$w
+        return("whatever")
+    # print(wid)
+    df1 <- data.frame(di[id %in% wid,])
+    df2 <- data.frame(v=wid, o=1:3)
+    mg <- merge(df1, df2, by.x="id", by.y="v")
+    # print(mg)
+    w <- mg[order(mg$o)]$word
     return(w)
 }
 
