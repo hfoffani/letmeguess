@@ -213,7 +213,7 @@ predict.baseline <- function(x){
     c('the', 'on', 'a')
 }
 # predict.baseline <- text.predict
-
+# benchmark(text.predict, sent.list = list('quizzes' = quizzes) )
 
 ################################################################################################
 #
@@ -223,7 +223,7 @@ predict.baseline <- function(x){
 benchmark(predict.baseline, 
           # additional parameters to be passed to the prediction function can be inserted here
           sent.list = list(
-                            'quizzes' = quizzes ) #, 
+                            'quizzes' = quizzes ), #, 
                             # 'tweets' = tweets, 
                             # 'blogs' = blogs), 
           ext.output = T)
