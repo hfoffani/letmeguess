@@ -4,8 +4,13 @@ test.read <- function() {
     names(testset) <- c('input', 'y')
 }
 
-test.accuracy <- function(testset, funcpredict) {
-    res <- sapply(testset$input, funcpredict, c(0.001, 0.05, 0.15, 0.899), USE.NAMES=F)
+test.accuracy <- function(testset, FUN, ...) {
+    res <- sapply(testset$input, FUN, ..., USE.NAMES=F)
     ok <- sum( res == testset$y ) / nrow(testset)
     return(ok)
 }
+
+# tmp <- timeit({
+#     test.accuracy(testset, simpsons.predict, c(0.001, 0.05, 0.15, 0.899), )
+# })
+

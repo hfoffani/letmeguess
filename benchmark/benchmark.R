@@ -13,7 +13,7 @@ require(data.table)
 # 01a. Get text from Coursera quizzes
 ################################################################################################
 
-quizzes <- readLines('data/quizzes.txt', encoding = 'UTF-8')
+quizzes <- readLines('benchmark/data/quizzes.txt', encoding = 'UTF-8')
 
 # verify checksum of loaded lines
 digest(paste0(quizzes, collapse = '||'), 
@@ -25,7 +25,7 @@ digest(paste0(quizzes, collapse = '||'),
 # 01b. Get text from randomly selected tweets
 ################################################################################################
 
-tweets <- readLines('data/tweets.txt', encoding = 'UTF-8')
+tweets <- readLines('benchmark/data/tweets.txt', encoding = 'UTF-8')
 
 # verify checksum of loaded lines
 digest(paste0(tweets, collapse = '||'), 
@@ -38,7 +38,7 @@ digest(paste0(tweets, collapse = '||'),
 ################################################################################################
 
 # make sure we can read it back in
-blogs <- readLines('data/blogs.txt', encoding = 'UTF-8')
+blogs <- readLines('benchmark/data/blogs.txt', encoding = 'UTF-8')
 
 # verify checksum of loaded lines
 digest(paste0(blogs, collapse = '||'), 
@@ -212,7 +212,7 @@ predict.baseline <- function(x){
 #    cat(x, '\n')
     c('the', 'on', 'a')
 }
-predict.baseline <- text.predict
+# predict.baseline <- text.predict
 
 
 ################################################################################################
@@ -222,7 +222,9 @@ predict.baseline <- text.predict
 ################################################################################################
 benchmark(predict.baseline, 
           # additional parameters to be passed to the prediction function can be inserted here
-          sent.list = list('quizzes' = quizzes, 
-                           'tweets' = tweets, 
-                           'blogs' = blogs), 
+          sent.list = list(
+                            'quizzes' = quizzes ) #, 
+                            # 'tweets' = tweets, 
+                            # 'blogs' = blogs), 
           ext.output = T)
+
