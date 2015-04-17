@@ -1,3 +1,5 @@
+library(timeit)
+
 test.read <- function(fn) {
     dataset <- paste('data', fn,sep='/')
     testset <- read.csv(dataset, header=F, stringsAsFactors=F, sep="|")
@@ -18,6 +20,8 @@ test.accuracy <- function(testset, FUN, ...) {
 # ./valsuite2.sh ../benchmark/data/quizzes.txt > tq.txt
 # test.accuracy(tq, text.predict)
 # [1] 0.133
+
+#  tmp <- timeit({ test.accuracy( tq, text.predict ) })
 
 
 
