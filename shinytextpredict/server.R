@@ -63,11 +63,12 @@ shinyServer(function(input, output, session) {
         if (input$blahblah == 0) return()
         isolate({
             v <- input$userText
-            for (i in 1:30) {
+            n <- sample.int(3, 10, replace=T)
+            sapply(n, function(i) {
                 preds <- fpredict(v)
-                n <- sample.int(3)[1]
-                v <- paste(v, preds[n])
-            }
+                v <<- paste(v, preds[i])
+                i
+            })
             updateTextInput(session, "userText", value = v)
         })
     })

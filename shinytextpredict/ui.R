@@ -44,7 +44,7 @@ shinyUI(fluidPage(
             h4(""),
             fluidRow(
                 column(4,
-                       actionButton("blahblah", label = "Hey Courserian! I'll type a some words for you."))
+                       actionButton("blahblah", label = "Hey Courserian, I can type a few words for you!"))
             )
         )
     )
