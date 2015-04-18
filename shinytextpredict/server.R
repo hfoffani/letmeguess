@@ -21,19 +21,42 @@ shinyServer(function(input, output, session) {
         isolate(values$predictions <- predictions)
     })
     
-    # use a hidden label to pass data to a control in ui.R
-    output$addword_label <- renderText({
+    # use hidden labels to pass data to a control in ui.R
+    output$addword1_label <- renderText({
         values$predictions[1]
+    })
+    # use hidden labels to pass data to a control in ui.R
+    output$addword2_label <- renderText({
+        values$predictions[2]
+    })
+    # use hidden labels to pass data to a control in ui.R
+    output$addword3_label <- renderText({
+        values$predictions[3]
     })
     
     # observe the button
     observe({
-        if(input$addword == 0) return()
+        if(input$addword1 == 0) return()
         isolate({
             updateTextInput(session, "userText",
                             value = paste(input$userText, values$predictions[1]))
         })
     })
-
+    # observe the button
+    observe({
+        if(input$addword2 == 0) return()
+        isolate({
+            updateTextInput(session, "userText",
+                            value = paste(input$userText, values$predictions[2]))
+        })
+    })
+    # observe the button
+    observe({
+        if(input$addword3 == 0) return()
+        isolate({
+            updateTextInput(session, "userText",
+                            value = paste(input$userText, values$predictions[3]))
+        })
+    })
 })  
 

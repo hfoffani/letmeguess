@@ -14,20 +14,27 @@ inputTextarea <- function(inputId, value="", nrows, ncols) {
     )
 }
 
-shinyUI(pageWithSidebar(
+shinyUI(fluidPage(
     
-    # Application title
-    headerPanel("Guess next word"),
+    theme = "bootstrap.css",
     
-    # something
-    sidebarPanel(
-        # sliderInput("bins", "Number of bins:", min = 1, max = 50, value = 30)
-    ),
+    titlePanel("Guess next word"),
     
-    # a textbox and a button
-    mainPanel(
-        inputTextarea("userText", "", 5, 70 ),
-        textOutput("_a_place_holder_"),
-        actionButton("addword", label = textOutput("addword_label"))
+    sidebarLayout(position = "right",
+                  sidebarPanel(
+                      "sidebar panel"
+                      ),
+                  mainPanel(
+                      inputTextarea("userText", "", 5, 70 ),
+                      textOutput("_a_place_holder_"),
+                      radioButtons("numpred", label = "Predict",
+                                   choices = list("1 word" = 1, "3 words" = 2),
+                                   selected = 1),
+                      fluidRow(
+                        actionButton("addword1", label = textOutput("addword1_label")),
+                        actionButton("addword2", label = textOutput("addword2_label")),
+                        actionButton("addword3", label = textOutput("addword3_label"))
+                      )
+                  )
     )
 ))
