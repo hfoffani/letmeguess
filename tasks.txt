@@ -5,9 +5,18 @@ My PLAN:
 faltan los scripts que generan
     coverage.txt and coverage-2gram.txt
 
-+ App.
+Shiny App.
+    change theme.
+    add more text in panel.
+    add text bottom of page.
+    point to the slides.
+    reduce width.
 
-presentation.
+Presentation.
+    same ideas in my forum description.
+    add formula.
+    explain performance.
+    expletives.
 
 
 optional in app:
