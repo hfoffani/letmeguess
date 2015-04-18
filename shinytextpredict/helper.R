@@ -144,8 +144,9 @@ text.predict <- function (phrase, weights=NULL) {
     bag <- text.w(phrase)
     bag <- bag[!is.na(bag)]
     wid <- text.guessword(bag, n1, n2, n3, n4, weights)
-    if (!length(wid) || is.na(wid))
-        return("whatever")
+    # wid <- NA . test predicting.
+    if (length(wid) != 3 || is.na(wid))
+        return(c("whatever","you","like"))
     # print(wid)
     df1 <- data.frame(di[id %in% wid,])
     df2 <- data.frame(v=wid, o=1:3)
