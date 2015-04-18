@@ -23,17 +23,25 @@ shinyUI(fluidPage(
     sidebarLayout(position = "right",
                   sidebarPanel(
                       "sidebar panel"
-                      ),
+                  ),
                   mainPanel(
                       inputTextarea("userText", "", 5, 70 ),
                       textOutput("_a_place_holder_"),
-                      radioButtons("numpred", label = "Predict",
+                      radioButtons("numPred", label = "Predict",
                                    choices = list("1 word" = 1, "3 words" = 2),
                                    selected = 1),
                       fluidRow(
-                        actionButton("addword1", label = textOutput("addword1_label")),
-                        actionButton("addword2", label = textOutput("addword2_label")),
-                        actionButton("addword3", label = textOutput("addword3_label"))
+                          column(4,
+                                 actionButton("addword1", label = textOutput("addword1_label"))),
+                          column(4,
+                                 conditionalPanel(condition = "input.numPred == 2",
+                                                  actionButton("addword2", label = textOutput("addword2_label")))),
+                          column(4,
+                                 conditionalPanel(condition = "input.numPred == 2",
+                                                  actionButton("addword3", label = textOutput("addword3_label"))))
+                      ),
+                      fluidRow(
+                          textOutput("addwords_hidden")
                       )
                   )
     )
