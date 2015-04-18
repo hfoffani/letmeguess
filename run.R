@@ -41,5 +41,9 @@ footprint <- function (units="Kb") {
 #mean(tmp)
 # 100 en 27 seg.
 
-
-
+# some tricks in R.
+f <- function(i) {
+    r <- sample.int(3)[1] + m
+    m <<- r
+    r
+}

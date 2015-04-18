@@ -2,75 +2,13 @@ My PLAN:
 
 ---
 
-scripts to
-coverage.txt and coverage-2gram.txt
+faltan los scripts que generan
+    coverage.txt and coverage-2gram.txt
 
-app:
-    package data.table in shiny
-    Always predict!!!
-    1. + basic + text-box + button + result
-    2. + #1 + simpson
-    3. + #2 + filter input
-    4. + #3 + no-button. ya algo hace...
-    5. + filtrado en script.R
-    6. + poner un @ al ppio.
-    7. + copiar script.R como helper.R a subdir de shiny
-    8. + llevar los rds a dir data de shiny
-    9. + poner los readRDS y source en server.R
-    10. + llamar a text.predict con el text$input.
-    11. + model predict.
-    12. + min stats.
-    13. X + JS <tab>. can't make it work. use a button instead.
-    14. + . button. 
-    14. ojo con 3.3 goo.gl etc.
++ App.
 
 presentation.
 
-+ add STOP to current model.
-
-
-packages:
-    timeit
-    data.table
-
-+ 0. less that 3 words. 
-+ 1. load many more words.
-3. measure time
-    + 3.1 ok upto 10K/100K . bad 10K/1M
-    + 3.2 profile.
-        + timeit package
-4. measure memory
-    + 4.1 function
-    + 4.2 repeat with different sizes.
-5. test.
-    + 5.1 test set.
-    + 5.2 measure error.    14%-16% acierto -- 16.4%
-    5.3 change the test data.
-        5.3.1 add STOP in towords.sh
-        5.3.2 ngram.sh with STOP
-        5.3.3 sample over output of ngram
-6. refine model.
-    6.1 + use MLE. maximum likelihood estimate.
-    6.2 + interpolation. did it.
-    6.3 find weights.
-7. tune-up.
-    + 7.1 performance in unlist and operator [[
-        sigue igual.
-    + 7.2 di como data.table con indice word.
-    + 7.3 di sorted, leida secuencialmente con idx == id.
-+ 6. mockup app.
-    + 6.1 shiny.
-    + 6.2 use simpsons. use load(data).
-    + 6.3 to-lower and use text.w
-    + 6.4 performance
-+ 6. repeat re transform in R.
-    + all lowercase.
-    + ignore numbers and other chars.
-    + do not ignore 's.
-7. app
-    all data in-memory.
-    weights pre-calculated.
-8. presentation
 
 optional in app:
         if expletives -> symbols
