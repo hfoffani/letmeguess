@@ -23,8 +23,12 @@ shinyUI(fluidPage(
     sidebarLayout(
         position = "right",
         sidebarPanel(
+            h5( "Requires a modern browser with JavaScript enabled.",
+                "Tested under OSX with Safari, Chrome and Firefox.",
+                "Under Windows 2000 with IE 11.",
+                "Also works with iOS Safari."),
             radioButtons("numPred", label = "Predict",
-                         choices = list("1 word" = 1, "3 words" = 2),
+                         choices = list("1 word" = 1, "3 words" = 3),
                          selected = 1)
         ),
         mainPanel(
@@ -32,18 +36,17 @@ shinyUI(fluidPage(
             inputTextarea("userText", "", 8, 50 ),
             h4("Your next word is:"),
             fluidRow(
-                column(4,
-                       actionButton("addword1", label = textOutput("addword1_label"))),
-                column(4,
-                       conditionalPanel(condition = "input.numPred == 2",
-                                        actionButton("addword2", label = textOutput("addword2_label")))),
-                column(4,
-                       conditionalPanel(condition = "input.numPred == 2",
+                column(6,
+                       conditionalPanel(condition = "input.numPred == 1",
+                                        actionButton("addword1", label = textOutput("addword1_label"))),
+                       conditionalPanel(condition = "input.numPred == 3",
+                                        actionButton("addword1b", label = textOutput("addword1b_label")),
+                                        actionButton("addword2", label = textOutput("addword2_label")),
                                         actionButton("addword3", label = textOutput("addword3_label"))))
             ),
             h4(""),
             fluidRow(
-                column(4,
+                column(6,
                        actionButton("blahblah", label = "Hey Courserian, I can type a few words for you!"))
             )
         )
