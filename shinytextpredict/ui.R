@@ -18,31 +18,34 @@ shinyUI(fluidPage(
     
     theme = "bootstrap.css",
     
-    titlePanel("Guess next word"),
+    titlePanel("Let me guess your next word"),
     
-    sidebarLayout(position = "right",
-                  sidebarPanel(
-                      "sidebar panel"
-                  ),
-                  mainPanel(
-                      inputTextarea("userText", "", 5, 70 ),
-                      textOutput("_a_place_holder_"),
-                      radioButtons("numPred", label = "Predict",
-                                   choices = list("1 word" = 1, "3 words" = 2),
-                                   selected = 1),
-                      fluidRow(
-                          column(4,
-                                 actionButton("addword1", label = textOutput("addword1_label"))),
-                          column(4,
-                                 conditionalPanel(condition = "input.numPred == 2",
-                                                  actionButton("addword2", label = textOutput("addword2_label")))),
-                          column(4,
-                                 conditionalPanel(condition = "input.numPred == 2",
-                                                  actionButton("addword3", label = textOutput("addword3_label"))))
-                      ),
-                      fluidRow(
-                          textOutput("addwords_hidden")
-                      )
-                  )
+    sidebarLayout(
+        position = "right",
+        sidebarPanel(
+            radioButtons("numPred", label = "Predict",
+                         choices = list("1 word" = 1, "3 words" = 2),
+                         selected = 1)
+        ),
+        mainPanel(
+            h4("Add some text here:"),
+            inputTextarea("userText", "", 8, 50 ),
+            h4("Your next word is:"),
+            fluidRow(
+                column(4,
+                       actionButton("addword1", label = textOutput("addword1_label"))),
+                column(4,
+                       conditionalPanel(condition = "input.numPred == 2",
+                                        actionButton("addword2", label = textOutput("addword2_label")))),
+                column(4,
+                       conditionalPanel(condition = "input.numPred == 2",
+                                        actionButton("addword3", label = textOutput("addword3_label"))))
+            ),
+            h4(""),
+            fluidRow(
+                column(4,
+                       actionButton("blahblah", label = "Hey Courserian! I'll type a some words for you."))
+            )
+        )
     )
 ))

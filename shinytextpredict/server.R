@@ -34,7 +34,7 @@ shinyServer(function(input, output, session) {
         values$predictions[3]
     })
     
-    # observe the button
+    # observe the button add 1
     observe({
         if (input$addword1 == 0) return()
         isolate({
@@ -42,7 +42,7 @@ shinyServer(function(input, output, session) {
                             value = paste(input$userText, values$predictions[1]))
         })
     })
-    # observe the button
+    # observe the button add 2
     observe({
         if (input$addword2 == 0) return()
         isolate({
@@ -50,12 +50,25 @@ shinyServer(function(input, output, session) {
                             value = paste(input$userText, values$predictions[2]))
         })
     })
-    # observe the button
+    # observe the button add 3
     observe({
         if (input$addword3 == 0) return()
         isolate({
             updateTextInput(session, "userText",
                             value = paste(input$userText, values$predictions[3]))
+        })
+    })
+    # observe the button blahblah
+    observe({
+        if (input$blahblah == 0) return()
+        isolate({
+            v <- input$userText
+            for (i in 1:30) {
+                preds <- fpredict(v)
+                n <- sample.int(3)[1]
+                v <- paste(v, preds[n])
+            }
+            updateTextInput(session, "userText", value = v)
         })
     })
 })  
