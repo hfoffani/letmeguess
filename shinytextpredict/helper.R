@@ -131,7 +131,7 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
         # standard
         # weights <- c(0.25, 0.25, 0.25, 0.25)
         # best so far
-        weights <- c(0.001, 0.05, 0.15, 0.899)
+        weights <- c(0.001, 0.05, 0.14, 0.809);
     }
     m <- data.frame(mapply(`*`,m, weights))
     # print(head(m))
