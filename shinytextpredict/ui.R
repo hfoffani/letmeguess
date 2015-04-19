@@ -34,6 +34,7 @@ shinyUI(fluidPage(
         mainPanel(
             h4("Add some text here:"),
             inputTextarea("userText", "", 8, 50 ),
+            checkboxInput("profanities", "Show profanity words", TRUE),
             h4("Your next word is:"),
             fluidRow(
                 column(6,

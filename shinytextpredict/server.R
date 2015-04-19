@@ -17,7 +17,7 @@ shinyServer(function(input, output, session) {
     # observe the userText.
     observe({
         text <- input$userText
-        predictions <- fpredict(text)
+        predictions <- fpredict(text, profanities=input$profanities)
         isolate(values$predictions <- predictions)
     })
     
