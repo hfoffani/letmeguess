@@ -179,8 +179,12 @@ text.filter <- function(text) {
 
 text.w <- function (phrase) {
     l <- strsplit(phrase, " ", fixed=F)
-    # bagwords <- unlist(l)
-    bagwords <- .Internal(unlist(l,F,F))
+    bagwords <- unlist(l)
+    # bagwords <- .Internal(unlist(l,F,F))
+    # con <- textConnection( phrase )
+    # df <- read.table(con, sep=" ", strip.white=T, comment.char="", quote=NULL, stringsAsFactors=F)
+    # bagwords <- as.character(df[1,])
+    # print(bagwords)
     bag <- text.wordid(bagwords, di)
     bag <- bag[!is.na(bag)]
     return(bag)
