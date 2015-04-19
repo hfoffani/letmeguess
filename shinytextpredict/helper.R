@@ -178,8 +178,7 @@ text.filter <- function(text) {
 }
 
 text.w <- function (phrase) {
-    l <- strsplit(phrase, " ", fixed=F)
-    bagwords <- unlist(l)
+    bagwords <- unlist(strsplit(phrase, " ", fixed=F))
     # bagwords <- .Internal(unlist(l,F,F))
     # con <- textConnection( phrase )
     # df <- read.table(con, sep=" ", strip.white=T, comment.char="", quote=NULL, stringsAsFactors=F)
