@@ -34,6 +34,9 @@ footprint <- function (units="Kb") {
 # text.predict('how is she')
 
 #testsmall <- testset[sample(nrow(testset), 100),]
+# benchmark(text.predict,
+#   sent.list = list('quizzes'=quizzes,'tweets'=tweets,'blogs'=blogs),
+#   ext.output=T )
 
 #tmp <- timeit({ test.accuracy(testset, simpsons.predict) })
 #summary(tmp)
