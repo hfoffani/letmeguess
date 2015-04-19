@@ -154,9 +154,9 @@ text.predict <- function (phrase, weights=NULL, profanities=T) {
     bag <- bag[!is.na(bag)]
     wid <- text.guessword(bag, n1, n2, n3, n4, weights)
     # wid <- NA . test predicting.
-    if (length(wid) != 3 || is.na(wid))
+    if (length(wid) != 3 || sum(is.na(wid)))
         return(c("whatever","you","like"))
-    # print(wid)
+    # print(wid); print(is.na(wid));print(length(wid))
     df1 <- data.frame(di[id %in% wid,])
     df2 <- data.frame(v=wid, o=1:3)
     mg <- merge(df1, df2, by.x="id", by.y="v")
