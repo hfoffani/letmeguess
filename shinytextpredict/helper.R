@@ -130,7 +130,9 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
     if (is.null(weights)) {
         # standard
         # weights <- c(0.25, 0.25, 0.25, 0.25)
-        # best so far
+        # best optimized by
+        # weights <- c(1.387779e-17, 0.1239362, 0.7521276, 0.1239362);
+        # best by hand
         weights <- c(0.001, 0.05, 0.14, 0.809);
     }
     m <- data.frame(mapply(`*`,m, weights))

@@ -17,11 +17,13 @@ Shiny App.
 
 Presentation.
     same ideas in my forum description.
+        I'm taking *all* the candidates from 2-3-4gram tables, merge them by their common predicted value (all=T), merge the unigram (all=F), replace NAs by 0s, multiply by the lambdas, sort, take the top 3.
     add formula.
     explain performance.
     expletives.
         https://raw.githubusercontent.com/shutterstock/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/master/en
-    ==>>> (1) how your model predicts, (2) what results it produces, and (3) how your app works. 
+    ==>>> (1) how your model predicts, (2) what results it produces, and (3) how your app works.
+
 
 optional in app:
         if expletives -> symbols
@@ -91,3 +93,34 @@ N4 	 23439.5 Kb
         large	1024 MB
         xlarge	2048 MB
         xxlarge	4096 MB
+
+-----
+
+Benchmark 1:
+weights: c(0.001, 0.05, 0.14, 0.809);
+
+Overall score:      18.66 %
+Overall precision:  25.68 %
+Average runtime:    59.28 msec
+Total memory used:  47.84 MB
+
+Dataset details
+Dataset "blogs"     Score: 15.57 %, Precision: 21.36 %
+Dataset "quizzes"   Score: 23.87 %, Precision: 33.66 %
+Dataset "tweets"    Score: 16.52 %, Precision: 22.02 %
+
+
+Benchmark 2:
+
+weights: c(1.387779e-17, 0.1239362, 0.7521276, 0.1239362);
+
+Overall score:     17.93 %
+Overall precision: 25.01 %
+Average runtime:   63.77 msec
+Total memory used: 47.94 MB
+
+Dataset details
+Dataset "blogs"    Score: 15.50 %, Precision: 21.32 %
+Dataset "quizzes"  Score: 22.11 %, Precision: 32.01 %
+Dataset "tweets"   Score: 16.19 %, Precision: 21.69 %
+
