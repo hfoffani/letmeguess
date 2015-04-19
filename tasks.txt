@@ -6,14 +6,18 @@ faltan los scripts que generan
     coverage.txt and coverage-2gram.txt
 
 Shiny App.
-    profanity.
-        1. read csv of only words.
-        2. if output in csv replace with first letter + "***"
+    + profanity.
+        + 1. read csv of only words.
+        + 2. if output in csv replace with first letter + "***"
     change theme.
     add more text in panel.
     add text bottom of page.
     point to the slides.
     reduce width.
+
+test with: speech-language pathologist
+my accuracy: 14.447% can be better, see before.
+test with a double-quote in the textbox.
 
 Presentation.
     same ideas in my forum description.
@@ -125,7 +129,7 @@ Dataset "quizzes"  Score: 22.11 %, Precision: 32.01 %
 Dataset "tweets"   Score: 16.19 %, Precision: 21.69 %
 
 
-Benchmar 3:
+Benchmark 3:
 same weights. 30000 words.
 
 Overall score:     19.00 %
@@ -142,5 +146,20 @@ Dataset details
   Score: 17.01 %, Precision: 22.73 %
 
 
-test with: speech-language pathologist
+Benchmark 4:
+30,000 words. fixed bug.
+
+Overall score:     21.55 %
+Overall precision: 26.23 %
+Average runtime:   75.38 msec
+Total memory used: 49.43 MB
+
+Dataset details
+ Dataset "blogs" (599 lines, 14587 words, hash 14b3c593e543eb8b2932cf00b646ed653e336897a03c82098b725e6e1f9b7aa2)
+  Score: 17.96 %, Precision: 22.04 %
+ Dataset "quizzes" (20 lines, 323 words, hash 07697c9cf45891a1f6da633299f35522711a17e65136ba261702e78e0abd09e1)
+  Score: 27.94 %, Precision: 33.99 %
+ Dataset "tweets" (793 lines, 14011 words, hash 7fa3bf921c393fe7009bc60971b2bb8396414e7602bb4f409bed78c7192c30f4)
+  Score: 18.75 %, Precision: 22.66 %
+
 
