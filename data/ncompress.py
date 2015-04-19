@@ -3,7 +3,7 @@
 import sys
 import operator
 
-DICTSIZE=10000
+DICTSIZE=30000
 CUT=[DICTSIZE,1000000,1000000,1000000]
 
 def process():
@@ -15,7 +15,7 @@ def process():
         for line in if1:
             parts = line.split()
             w = parts[1]
-            if "@" in w: continue
+            if filter(lambda c: c=="'" or c.isalpha(), w) != w: continue
             d[w] = i
             i+=1
             if i > DICTSIZE:
