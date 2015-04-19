@@ -13,4 +13,5 @@ BEGIN {
             printf "%s|%s\n", ltrim(r), alfa($i);
         }
     }
-} ' $*
+} ' $* |
+grep -v "|.*|" 
