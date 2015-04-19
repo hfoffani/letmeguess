@@ -6,6 +6,9 @@ faltan los scripts que generan
     coverage.txt and coverage-2gram.txt
 
 Shiny App.
+    profanity.
+        1. read csv of only words.
+        2. if output in csv replace with first letter + "***"
     change theme.
     add more text in panel.
     add text bottom of page.
@@ -17,7 +20,8 @@ Presentation.
     add formula.
     explain performance.
     expletives.
-
+        https://raw.githubusercontent.com/shutterstock/List-of-Dirty-Naughty-Obscene-and-Otherwise-Bad-Words/master/en
+    ==>>> (1) how your model predicts, (2) what results it produces, and (3) how your app works. 
 
 optional in app:
         if expletives -> symbols

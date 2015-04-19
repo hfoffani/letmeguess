@@ -24,4 +24,18 @@ test.accuracy <- function(testset, FUN, ...) {
 #  tmp <- timeit({ test.accuracy( tq, text.predict ) })
 
 
+profanities <- function() {
+    dfprof <- read.csv('data/prof.txt', stringsAsFactors=F,header=F)
+    names(dfprof) <- c('word')
+    tprof <- data.table(dfprof)
+    setkey(tprof, word)
+    saveRDS(tprof, 'data/prof.rds')
+}
+
+cleanprof <- function(p) {
+    clean <- ifelse(p %in% profan$word, sub('^(.).*', '\\1***', p), p)
+    return( clean )
+}
+
+
 

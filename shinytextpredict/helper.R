@@ -5,6 +5,8 @@ n1 <- readRDS('data/n1.rds')
 n2 <- readRDS('data/n2.rds')
 n3 <- readRDS('data/n3.rds')
 n4 <- readRDS('data/n4.rds')
+profan <- readRDS('data/prof.rds')
+
 TOTAL <- sum(n1$count)
 
 text.read.dict <- function () {
@@ -139,7 +141,13 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
     return( top3 )
 }
 
-text.predict <- function (phrase, weights=NULL) {
+text.cleanprof <- function(p) {
+    clean <- ifelse(p %in% profan$word, sub('^(.).*', '\\1***', p), p)
+    return( clean )
+}
+
+
+text.predict <- function (phrase, weights=NULL, profanities=T) {
     phrase <- text.filter(phrase)
     bag <- text.w(phrase)
     bag <- bag[!is.na(bag)]
@@ -153,6 +161,8 @@ text.predict <- function (phrase, weights=NULL) {
     mg <- merge(df1, df2, by.x="id", by.y="v")
     # print(mg)
     w <- mg[order(mg$o)]$word
+    if (!profanities)
+        w <- text.cleanprof(w)
     return(w)
 }
 
