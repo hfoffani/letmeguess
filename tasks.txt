@@ -124,3 +124,23 @@ Dataset "blogs"    Score: 15.50 %, Precision: 21.32 %
 Dataset "quizzes"  Score: 22.11 %, Precision: 32.01 %
 Dataset "tweets"   Score: 16.19 %, Precision: 21.69 %
 
+
+Benchmar 3:
+same weights. 30000 words.
+
+Overall score:     19.00 %
+Overall precision: 26.30 %
+Average runtime:   70.29 msec
+Total memory used: 49.08 MB
+
+Dataset details
+ Dataset "blogs" (599 lines, 14587 words, hash 14b3c593e543eb8b2932cf00b646ed653e336897a03c82098b725e6e1f9b7aa2)
+  Score: 16.13 %, Precision: 22.17 %
+ Dataset "quizzes" (20 lines, 323 words, hash 07697c9cf45891a1f6da633299f35522711a17e65136ba261702e78e0abd09e1)
+  Score: 23.87 %, Precision: 33.99 %
+ Dataset "tweets" (793 lines, 14011 words, hash 7fa3bf921c393fe7009bc60971b2bb8396414e7602bb4f409bed78c7192c30f4)
+  Score: 17.01 %, Precision: 22.73 %
+
+
+test with: speech-language pathologist
+
