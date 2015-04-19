@@ -136,8 +136,7 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
         weights <- c(0.001, 0.05, 0.14, 0.809);
     }
     m <- data.frame(mapply(`*`,m, weights))
-    # print(head(m))
-    # print(head(w))
+    # print(m);print(w)
     top3 <- w[order(rowSums(m, na.rm=T), decreasing=T)][1:3]
     # top1 <- w[which.max(rowSums(m, na.rm=T))] 
     return( top3 )
@@ -161,8 +160,7 @@ text.predict <- function (phrase, weights=NULL, profanities=T) {
     df1 <- data.frame(di[id %in% wid,])
     df2 <- data.frame(v=wid, o=1:3)
     mg <- merge(df1, df2, by.x="id", by.y="v")
-    # print(mg)
-    w <- mg[order(mg$o)]$word
+    w <- mg[order(mg$o),]$word
     if (!profanities)
         w <- text.cleanprof(w)
     return(w)
