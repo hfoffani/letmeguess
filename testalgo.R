@@ -1,4 +1,6 @@
 library(timeit)
+library(lineprof)
+
 
 test.read <- function(fn) {
     dataset <- paste('data', fn,sep='/')
@@ -56,5 +58,11 @@ cleanprof <- function(p) {
 
 fopt <- function(pars) {
     1 - test.accuracy( opti2, text.predict, pars )
+}
+
+source('shinytextpredict/helper.R')
+tq <- test.read('tq.txt')
+lineprof_textpredict <- function() {
+    test.accuracy( tq, text.predict )
 }
 
