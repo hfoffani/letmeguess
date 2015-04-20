@@ -9,15 +9,14 @@ Shiny App.
     + profanity.
         + 1. read csv of only words.
         + 2. if output in csv replace with first letter + "***"
-    change theme.
-    add more text in panel.
-    add text bottom of page.
+    + change theme.
+    add more text.
     point to the slides.
-    reduce width.
+    + reduce width.
 
-test with: speech-language pathologist
-my accuracy: 14.447% can be better, see before.
-test with a double-quote in the textbox.
++ test with: speech-language pathologist
++ my accuracy: 14.447% can be better, see before.
++ test with a double-quote in the textbox.
 
 Presentation.
     same ideas in my forum description.

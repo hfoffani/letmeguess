@@ -1,6 +1,4 @@
 
-# This is the server logic for a Shiny web application.
-
 library(shiny)
 
 # source("simpsons.R")
