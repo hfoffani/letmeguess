@@ -1,0 +1,33 @@
+Text Prediction
+========================================================
+author: Herchu
+date: April 20th, 2015
+
+First Slide
+========================================================
+type: section
+
+For more details on authoring R presentations click the
+**Help** button on the toolbar.
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+Slide With Code
+========================================================
+type: section
+
+![app main screen capture](www/screen1.png)
+
+Slide With Plot
+========================================================
+type: section
+
+```{r, echo=FALSE}
+plot(cars)
+```
+
+Live at
+=======================================================
+type: section

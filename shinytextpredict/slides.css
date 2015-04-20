@@ -1,0 +1,9 @@
+.section .reveal .state-background {
+    background: #2b3e50;
+    }
+.section .reveal h1,
+.section .reveal p {
+    color: #ebebeb;
+    position: relative;
+    top: 4%;
+    }
