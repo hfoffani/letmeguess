@@ -3,7 +3,6 @@
 data/*.txt
 data/*.csv
 data/temp*/*.txt
-benchmark/data/*
 benchmark/datax.zip
 test.html
 textprediction.html

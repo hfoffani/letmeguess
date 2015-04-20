@@ -163,3 +163,38 @@ Dataset details
   Score: 18.75 %, Precision: 22.66 %
 
 
+Benchmark 5:
+30,000 words. bug in order fixed. pick first 10.
+
+Overall score:     21.67 %
+Overall precision: 26.36 %
+Average runtime:   43.84 msec
+Total memory used: 49.05 MB
+
+Dataset details
+ Dataset "blogs" (599 lines, 14587 words, hash 14b3c593e543eb8b2932cf00b646ed653e336897a03c82098b725e6e1f9b7aa2)
+  Score: 18.19 %, Precision: 22.30 %
+ Dataset "quizzes" (20 lines, 323 words, hash 07697c9cf45891a1f6da633299f35522711a17e65136ba261702e78e0abd09e1)
+  Score: 27.94 %, Precision: 33.99 %
+ Dataset "tweets" (793 lines, 14011 words, hash 7fa3bf921c393fe7009bc60971b2bb8396414e7602bb4f409bed78c7192c30f4)
+  Score: 18.87 %, Precision: 22.80 %
+
+
+Benchmark 6:
+same as 5 but with optimizations and using the last benchmark.R
+
+Overall top-3 score:     21.67 %
+Overall top-1 precision: 16.08 %
+Overall top-3 precision: 26.36 %
+Average runtime:         37.91 msec
+Total memory used:       49.09 MB
+
+Dataset details
+ Dataset "blogs" (599 lines, 14587 words, hash 14b3c593e543eb8b2932cf00b646ed653e336897a03c82098b725e6e1f9b7aa2)
+  Score: 18.19 %, Top-1 precision: 13.35 %, Top-3 precision: 22.30 %
+ Dataset "quizzes" (20 lines, 323 words, hash 07697c9cf45891a1f6da633299f35522711a17e65136ba261702e78e0abd09e1)
+  Score: 27.94 %, Top-1 precision: 20.79 %, Top-3 precision: 33.99 %
+ Dataset "tweets" (793 lines, 14011 words, hash 7fa3bf921c393fe7009bc60971b2bb8396414e7602bb4f409bed78c7192c30f4)
+  Score: 18.87 %, Top-1 precision: 14.10 %, Top-3 precision: 22.80 %
+
+
