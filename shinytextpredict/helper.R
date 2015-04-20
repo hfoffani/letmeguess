@@ -144,7 +144,6 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
     m[is.na(m)] <- 0
     m <- sweep(m, MARGIN=2, weights, `*`)
     top3 <- w[order(rowSums(m), decreasing=T)][1:3]
-    # top3 <- w[order(rowSums(m, na.rm=T), decreasing=T)][1:3]
     return( top3 )
 }
 
