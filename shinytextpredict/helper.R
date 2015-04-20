@@ -7,7 +7,11 @@ n3 <- readRDS('data/n3.rds')
 n4 <- readRDS('data/n4.rds')
 profan <- readRDS('data/prof.rds')
 
+# invariants
 TOTAL <- sum(n1$count)
+n1fill <- data.frame(n1[3:10,])
+names(n1fill) <- c('y', 'count.c1')
+
 
 text.read.dict <- function () {
     w <- read.csv('data/di.csv', header=F, stringsAsFactors=F)
@@ -122,8 +126,6 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
     m <- merge(m, c4, by="y", all=T)
     m <- merge(m, n1, by="y", suffixes=c(".c4",".c1"))
     # append some of the most commom words to fill the result set.
-    n1fill <- data.frame(n1[3:10,])
-    names(n1fill) <- c('y', 'count.c1')
     m <- rbind(m, n1fill, fill=T)
     setnames(m, 1:5, c('w','c2','c3','c4','c1'))
     m$c1 <- m$c1 / TOTAL
@@ -139,10 +141,10 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
         # best by hand
         weights <- c(0.001, 0.05, 0.14, 0.809);
     }
-    m <- data.frame(mapply(`*`,m, weights))
-    # print(m);print(w)
-    top3 <- w[order(rowSums(m, na.rm=T), decreasing=T)][1:3]
-    # top1 <- w[which.max(rowSums(m, na.rm=T))] 
+    m[is.na(m)] <- 0
+    m <- sweep(m, MARGIN=2, weights, `*`)
+    top3 <- w[order(rowSums(m), decreasing=T)][1:3]
+    # top3 <- w[order(rowSums(m, na.rm=T), decreasing=T)][1:3]
     return( top3 )
 }
 
