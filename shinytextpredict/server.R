@@ -71,7 +71,7 @@ shinyServer(function(input, output, session) {
         if (input$blahblah == 0) return()
         isolate({
             v <- input$userText
-            n <- sample.int(3, 10, replace=T)
+            n <- sample.int(3, 12, replace=T)
             sapply(n, function(i) {
                 preds <- fpredict(v)
                 v <<- paste(v, preds[i])
