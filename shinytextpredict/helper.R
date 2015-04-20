@@ -121,6 +121,10 @@ text.guessword <- function (wordsids, n1, n2, n3, n4, weights=NULL) {
     m <- merge(c2, c3, by="y", all=T, suffixes=c(".c2",".c3"))
     m <- merge(m, c4, by="y", all=T)
     m <- merge(m, n1, by="y", suffixes=c(".c4",".c1"))
+    # append some of the most commom words to fill the result set.
+    n1fill <- data.frame(n1[3:10,])
+    names(n1fill) <- c('y', 'count.c1')
+    m <- rbind(m, n1fill, fill=T)
     setnames(m, 1:5, c('w','c2','c3','c4','c1'))
     m$c1 <- m$c1 / TOTAL
     # doesn't improve if avoid repeating last word.
@@ -154,9 +158,8 @@ text.predict <- function (phrase, weights=NULL, profanities=T) {
     bag <- bag[!is.na(bag)]
     wid <- text.guessword(bag, n1, n2, n3, n4, weights)
     # wid <- NA . test predicting.
-    if (length(wid) != 3 || sum(is.na(wid)))
-        return(c("whatever","you","like"))
-    # print(wid); print(is.na(wid));print(length(wid))
+    # if (length(wid) != 3 || sum(is.na(wid)))
+    #    return(c("whatever","you","like"))
     df1 <- data.frame(di[id %in% wid,])
     df2 <- data.frame(v=wid, o=1:3)
     mg <- merge(df1, df2, by.x="id", by.y="v")
