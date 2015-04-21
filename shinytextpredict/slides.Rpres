@@ -5,10 +5,10 @@ author: by Herchu
 
 ## Easy to use, highly accurate, blazing-fast text prediction web application.
 
-Works in many different (JavaScript enabled) browsers. Responsiveness
+Works in all modern (JavaScript enabled) browsers. Responsiveness
 guaranteed: tested in an iPad and an iPhone.
 
-Modern design.
+Sleek design.
 
 Shows or hides profanity.
 
@@ -37,7 +37,7 @@ P(w_n|w_{n-1},\dotsc,w_{n-3}) = & \lambda_0 P(w_n) +
 the 2, 3 and 4 ngram tables. (*MLE probabilities*).
 
 The app achieves ~~16% accuracy~~ for the first word and ~~26%~~
-within the best three. *Scores from the independent
+within the best three. *Independently scored by
 third-party
 [benchmark.R](https://github.com/jan-san/dsci-benchmark)*
 
@@ -51,9 +51,9 @@ Web app hosted in [shinyapps.io](http://shinyapps.io) (developed in R)
 Words in the ngram tables are integer coded: less char strings
 results in a ~~50MB~~ total memory footprint.
 
-One R line to get the best candidate according its probability (~~fast!~~):
+One (~~fast!~~) line get to the best candidate:
 
-    head( order( rowSums( sweep( ngrams, 2, weights, `*`)), decreasing=T), n=1)
+    head(order(rowSums(sweep(ngrams,2,weights,`*`)),decreasing=T),n=1)
 
 Weights (lambdas) were obtained by eyeball. Couldn't get better values
 through optimization
