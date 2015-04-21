@@ -6,24 +6,16 @@ faltan los scripts que generan
     coverage.txt and coverage-2gram.txt
 
 Shiny App.
-    + profanity.
-        + 1. read csv of only words.
-        + 2. if output in csv replace with first letter + "***"
-    + change theme.
-    add more text.
-    point to the slides.
+    + bottom text with browsers (small font).
+    + text blahblah (small font)
+    + &trade;
+    + more vertical space.
+    + address to the slides.
     + reduce width.
-
-+ test with: speech-language pathologist
-+ my accuracy: 14.447% can be better, see before.
-+ test with a double-quote in the textbox.
+    test at home.
 
 Presentation.
     s2: image of app with arrows.
-    + s3: probabilities by frecuencies.
-    + s3: link to formula.
-    + s4: highlight text.
-    + s5: bullets. hyperlinks.
     review text.
     
     + same ideas in my forum description.
@@ -36,7 +28,7 @@ Presentation.
 
 
 optional in app:
-        if expletives -> symbols
+        + if expletives -> symbols
         if fullstop -> capital
         if Names -> capital
         via dictionary.

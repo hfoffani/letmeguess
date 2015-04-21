@@ -34,19 +34,44 @@ shinyUI(fixedPage(
             actionButton("addword3", label = textOutput("addword3_label"),
                          class="btn btn-info")))
     ),
-    h4(""),
+    fixedRow(column(6,h4( ""))),
     fixedRow(column(6,
-        h5( "Requires a modern browser with JavaScript enabled.",
-            "Tested under OSX with Safari, Chrome and Firefox.",
-            "Under Windows 2000 with IE 11.",
-            "Also works with iOS Safari.")
+        p("Get more info of this app at the",
+        a(href="https://herchu.rpubs.com/textpredict",
+          "web app presentation"),
+        ".")
     )),
-    radioButtons("numPred", label = "Predict",
-                 choices = list("1 word" = 1, "3 words" = 3),
+    fixedRow(column(6,h4( ""))),
+    fixedRow(column(6,h4( ""))),
+    fixedRow(column(6,h4( ""))),
+    fixedRow(column(6,
+        h4( "Extra features")
+    )),
+    fixedRow(column(6,
+        p( "You can change the capstone requirement defaults."))),
+    radioButtons("numPred", label = "Predicts",
+                 choices = list("the requested one word" = 1,
+                                "or two more words" = 3),
                  selected = 1),
     fixedRow(column(6,
-            actionButton("blahblah",
-                         label = "Hey Courserian, I can type a few words for you!",
-                         class="btn btn-success"))
-    )
+        p( HTML("PAT (Phrase-Auto-Type&trade;) ;-)"))
+    )),                     
+    fixedRow(column(6,
+        actionButton("blahblah",
+                    label = "Hey Courserian, I can type a few words for you!",
+                    class="btn btn-success"))
+    ),
+    fixedRow(column(6,
+        p( "Words randomly chosen from the top three predictions.",
+           class="small"))),
+    fixedRow(column(6,h4( ""))),
+    fixedRow(column(6,h4( ""))),
+    fixedRow(column(6,h4( ""))),
+    fixedRow(column(6,
+        p( "Requires a modern browser with JavaScript enabled.",
+           "Tested under OSX with Safari, Chrome and Firefox.",
+           "Under Windows 2000 with IE 11.",
+           "Also works with iOS Safari.",
+           class="small")
+    ))    
 ))
