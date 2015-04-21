@@ -1,15 +1,16 @@
-Text Prediction
+Text Prediction Web App
 ========================================================
 type: section
 author: by Herchu
 
-Easy to use, accurate with high performance text prediction web application.
+## Easy to use, highly accurate, blazing-fast text prediction web application.
 
-Works in many different (JavaScript enabled) browsers.
+Works in many different (JavaScript enabled) browsers. Responsiveness
+guaranteed: tested in an iPad and an iPhone.
 
-Responsiveness guaranteed: tested in iPad and iPhone.
+Modern design.
 
-
+Shows or hides profanity.
 
 Using the application
 ========================================================
@@ -32,10 +33,13 @@ P(w_n|w_{n-1},\dotsc,w_{n-3}) = & \lambda_0 P(w_n) +
 & \lambda_3 P(w_n|w_{n-1},\dotsc,w_{n-3})
 \end{align*} $$
 
-30,000 English words dictionary with 1,000,000 entries for each one of the
-2, 3 and 4 ngram tables.
+*30,000* English words dictionary with *1,000,000* entries for each one of
+the 2, 3 and 4 ngram tables. (*MLE probabilities*).
 
-Results in 16% accuracy for the first word and almost 27% for the best three.
+The app achieves ~~16% accuracy~~ for the first word and ~~26%~~
+within the best three. *Scores from the independent
+third-party
+[benchmark.R](https://github.com/jan-san/dsci-benchmark)*
 
 
 Implementation
@@ -43,14 +47,15 @@ Implementation
 type: section
 
 Words in the ngram tables are integer coded. Avoiding character strings
-results in a 50MB total memory footprint.
+results in a ~~50MB~~ total memory footprint.
 
-One R line gets all the word candidates sorted by their probabilities:
+One R line gets the best candidate according its probability (~~fast!~~):
 
-    order(rowSums(sweep(ngrams,2,weights,`*`)))
+    head( order( rowSums( sweep( ngrams, 2, weights, `*`)), decreasing=T), n=1)
 
 Weights (lambdas) were obtained by eyeball. Finding the optimal values through
-optimization (COBYLA algorithm) took too much time and didn't get the best
+optimization ([COBYLA algorithm](http://en.wikipedia.org/wiki/COBYLA))
+took too much time and didn't get the best
 number with the provided data set.
 
 
@@ -59,11 +64,12 @@ Try it!
 =======================================================
 type: section
 
-https://herchu.shinyapps.io/shinytextpredict
 
 Includes two optional extra features:
-- Predicts three words
-- Auto-typing &trade;
+- Predicts the obligatory word plus ~~two more~~ words
+- PAT Phrase-auto-typing &trade; ;-)
+
+## https://herchu.shinyapps.io/shinytextpredict
 
 
 

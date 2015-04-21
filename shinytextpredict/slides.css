@@ -1,9 +1,20 @@
 .section .reveal .state-background {
     background: #2b3e50;
     }
-.section .reveal h1,
-.section .reveal p {
+
+.section .reveal h1, h2, h3, p, ul {
     color: #ebebeb;
     position: relative;
     top: 4%;
     }
+.section .reveal a {
+    color: #df691a;
+}
+.section .reveal pre code {
+  font-size: 1em;
+}
+
+.reveal section del {
+  color: yellow;
+}
+
