@@ -1,33 +1,70 @@
 Text Prediction
 ========================================================
-author: Herchu
-date: April 20th, 2015
-
-First Slide
-========================================================
 type: section
+author: by Herchu
 
-For more details on authoring R presentations click the
-**Help** button on the toolbar.
+Easy to use, accurate with high performance text prediction web application.
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+Works in many different (JavaScript enabled) browsers.
 
-Slide With Code
+Responsiveness guaranteed: tested in iPad and iPhone.
+
+
+
+Using the application
 ========================================================
 type: section
 
 ![app main screen capture](www/screen1.png)
 
-Slide With Plot
+
+
+
+Internal Model
 ========================================================
 type: section
 
-```{r, echo=FALSE}
-plot(cars)
-```
+4-gram Model with Linear Interpolation Smoothing
 
-Live at
+$$ \begin{align*}
+P(w_n|w_{n-1},\dotsc,w_{n-3}) = & \lambda_0 P(w_n) +
+\lambda_1 P(w_n|w_{n-1}) + \dotsc + \\
+& \lambda_3 P(w_n|w_{n-1},\dotsc,w_{n-3})
+\end{align*} $$
+
+30,000 English words dictionary with 1,000,000 entries for each one of the
+2, 3 and 4 ngram tables.
+
+Results in 16% accuracy for the first word and almost 27% for the best three.
+
+
+Implementation
 =======================================================
 type: section
+
+Words in the ngram tables are integer coded. Avoiding character strings
+results in a 50MB total memory footprint.
+
+One R line gets all the word candidates sorted by their probabilities:
+
+    order(rowSums(sweep(ngrams,2,weights,`*`)))
+
+Weights (lambdas) were obtained by eyeball. Finding the optimal values through
+optimization (COBYLA algorithm) took too much time and didn't get the best
+number with the provided data set.
+
+
+
+Try it!
+=======================================================
+type: section
+
+https://herchu.shinyapps.io/shinytextpredict
+
+Includes two optional extra features:
+- Predicts three words
+- Auto-typing &trade;
+
+
+
+
