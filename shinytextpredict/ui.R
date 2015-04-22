@@ -37,7 +37,7 @@ shinyUI(fixedPage(
     fixedRow(column(6,h4( ""))),
     fixedRow(column(6,
         p("Get more info of this app at the",
-        a(href="https://herchu.rpubs.com/textpredict",
+        a(href="http://rpubs.com/herchu1/shinytextprediction",
           "web app presentation"),
         ".")
     )),
