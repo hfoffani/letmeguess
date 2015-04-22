@@ -6,16 +6,11 @@ faltan los scripts que generan
     coverage.txt and coverage-2gram.txt
 
 Shiny App.
-    + bottom text with browsers (small font).
-    + text blahblah (small font)
-    + &trade;
-    + more vertical space.
-    + address to the slides.
-    + reduce width.
-    test at home.
+    test. chinese. browsers.
+    check error console in shinyapps.io
+    stats.
 
 Presentation.
-    s2: image of app with arrows.
     review text.
     
     + same ideas in my forum description.
