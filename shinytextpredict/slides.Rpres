@@ -53,7 +53,7 @@ Web app hosted in [shinyapps.io](http://shinyapps.io) (developed in R)
 Words in the ngram tables are integer coded: less char strings
 results in a ~~50MB~~ total memory footprint.
 
-One (~~fast!~~) line get to the best candidate:
+One line in R (~~fast!~~) gets the most probable next word:
 
     head(order(rowSums(sweep(ngrams,2,weights,`*`)),decreasing=T),n=1)
 
@@ -73,7 +73,7 @@ Includes two optional extra features:
 - Predicts the obligatory word plus ~~two more~~ words
 - PAT Phrase-auto-typing &trade; ;-)
 
-## https://herchu.shinyapps.io/shinytextpredict
+## https://herchu1.shinyapps.io/shinytextpredict
 
 
 
