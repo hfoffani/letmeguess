@@ -34,16 +34,17 @@ shinyUI(fixedPage(
             actionButton("addword3", label = textOutput("addword3_label"),
                          class="btn btn-info")))
     ),
-    fixedRow(column(6,h4( ""))),
+    fixedRow(tags$ul(tags$li(), style="visibility:hidden;")),   # vert. spc.
     fixedRow(column(6,
         p("Get more info of this app at the",
         a(href="http://rpubs.com/herchu1/shinytextprediction",
           "web app presentation"),
         ".")
     )),
-    fixedRow(column(6,h4( ""))),
-    fixedRow(column(6,h4( ""))),
-    fixedRow(column(6,h4( ""))),
+    fixedRow(tags$ul(
+        tags$li(),
+        tags$li(),
+        style="visibility:hidden;")), # vert. spc.
     fixedRow(column(6,
         h4( "Extra features")
     )),
@@ -64,9 +65,10 @@ shinyUI(fixedPage(
     fixedRow(column(6,
         p( "Words randomly chosen from the top three predictions.",
            class="small"))),
-    fixedRow(column(6,h4( ""))),
-    fixedRow(column(6,h4( ""))),
-    fixedRow(column(6,h4( ""))),
+    fixedRow(tags$ul(
+        tags$li(),
+        tags$li(),
+        style="visibility:hidden;")), # vert. spc.
     fixedRow(column(6,
         p( "Requires a modern browser with JavaScript enabled.",
            "Tested under OSX with Safari, Chrome and Firefox.",
