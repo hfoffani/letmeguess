@@ -33,14 +33,14 @@ P(w_n|w_{n-1},\dotsc,w_{n-3}) = & \lambda_0 P(w_n) +
 & \lambda_3 P(w_n|w_{n-1},\dotsc,w_{n-3})
 \end{align*} $$
 
-*30,000* words dictionary, 2, to 4 ngram tables with *1,000,000* entries each
-(*MLE probabilities*).
+*30,000* words dictionary, unigram to tetagram tables with
+*1 million* entries each for the 2 to 4-grams
+(*MLE; frequencies >= 3*.)
 
 n-grams tuples include begin-of-sentence tokens.
 
-The app achieves ~~16% accuracy~~ for the first word and ~~26%~~
+Achieves ~~16% accuracy~~ for the first word and ~~26%~~
 within the best three. *Independently scored by
-third-party
 [benchmark.R](https://github.com/jan-san/dsci-benchmark)*
 
 
