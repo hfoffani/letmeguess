@@ -1,13 +1,14 @@
 
 library(shiny)
 
-inputTextarea <- function(inputId, value="", nrows, ncols) {
+inputTextarea <- function(inputId, value="", nrows, ncols, ph) {
     tagList(
         singleton(tags$head(tags$script(src = "textarea.js"))),
         tags$textarea(id = inputId,
                       class = "inputtextarea",
                       rows = nrows,
                       cols = ncols,
+                      placeholder = ph,
                       as.character(value))
     )
 }
@@ -18,8 +19,7 @@ shinyUI(fixedPage(
     
     titlePanel("Let me guess your next word"),
     
-    h4("Insert some text here:"),
-    inputTextarea("userText", "", 8, 50 ),
+    inputTextarea("userText", "", 8, 50, "Insert some text here"),
     checkboxInput("profanities", "Show profanity words", TRUE),
     h4("Your next word is:"),
     fixedRow(column(6,
@@ -75,5 +75,9 @@ shinyUI(fixedPage(
            "Under Windows 2000 with IE 11.",
            "Also works with iOS Safari.",
            class="small")
-    ))    
+    )),    
+    fixedRow(column(6,
+        p( "Version 1.2",
+          class="small")
+    ))
 ))

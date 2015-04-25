@@ -10,13 +10,17 @@ shinyServer(function(input, output, session) {
   
     # use of reactive values
     values <- reactiveValues()
-    values$predictions <- fpredict("")
+    values$predictions <- c('','','') # fpredict("")
     
     # observe the userText.
     observe({
+        # if (input$userText == "") return()
         text <- input$userText
-        predictions <- fpredict(text, profanities=input$profanities)
-        isolate(values$predictions <- predictions)
+        profi <- input$profanities
+        isolate({
+            predictions <- fpredict(text, profanities=profi)
+            values$predictions <- predictions
+        })
     })
     
     # use hidden labels to pass data to a control in ui.R

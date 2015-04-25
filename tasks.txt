@@ -2,13 +2,17 @@ My PLAN:
 
 ---
 
+versionado:
+    1.1 - con fpredict dentro de isolate.
+    1.2 - con placeholder en textarea.
+
 faltan los scripts que generan
     coverage.txt and coverage-2gram.txt
 
 Shiny App.
-    test. chinese. browsers.
-    check error console in shinyapps.io
-    stats.
+    + test. chinese. browsers.
+    + check error console in shinyapps.io
+    X stats.
 
 Presentation.
     review text.
