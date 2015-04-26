@@ -23,3 +23,31 @@ Tool: ncompress.py
 
 
 
+### this project
+
+source testalgo.R
+then run:
+
+    test.accuracy( tq, text.predict )
+    
+for benchmarking, source benchmark.R
+then run:
+
+    benchmark(predict.baseline, 
+          sent.list = list('quizzes' = quizzes, 
+                           'tweets' = tweets, 
+                           'blogs' = blogs), 
+          ext.output = T)
+
+for profiling, source testalgo.R
+the run:
+
+    tmp <- lineprof( lineprof_textpredict() )
+    shine(tmp)
+
+
+# running the app.
+
+open the project under shinytextpredict
+open either server.R or ui.R
+then click on run app

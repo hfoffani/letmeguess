@@ -7,6 +7,7 @@ data/temp*/*.txt
 benchmark/datax.zip
 test.html
 textprediction.html
+README.html
 *_cache
 *_files
 shinytextpredict/slides.md
