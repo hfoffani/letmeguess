@@ -19,7 +19,7 @@ shinyUI(fixedPage(
     
     titlePanel("Let me guess your next word"),
     
-    inputTextarea("userText", "", 8, 50, "Insert some text here"),
+    inputTextarea("userText", "", 8, 45, "Insert some text here..."),
     checkboxInput("profanities", "Show profanity words", TRUE),
     h4("Your next word is:"),
     fixedRow(column(6,
@@ -41,34 +41,30 @@ shinyUI(fixedPage(
           "web app presentation"),
         ".")
     )),
-    fixedRow(tags$ul(
-        tags$li(),
-        tags$li(),
-        style="visibility:hidden;")), # vert. spc.
+    fixedRow(column(6, hr() )),
     fixedRow(column(6,
         h4( "Extra features")
     )),
     fixedRow(column(6,
-        p( "You can change the capstone requirement defaults."))),
+        p( "Change the default behaviour:"))),
+    fixedRow(column(1),column(6,
     radioButtons("numPred", label = "Predicts",
                  choices = list("the requested one word" = 1,
                                 "or two more words" = 3),
-                 selected = 1),
+                 selected = 1)
+    )),
     fixedRow(column(6,
-        p( HTML("PAT (Phrase-Auto-Type&trade;) ;-)"))
+        p( HTML("PAT (Phrase-Auto-Typing&trade;) ;-)"))
     )),                     
     fixedRow(column(6,
         actionButton("blahblah",
-                    label = "Hey Courserian, I can type a few words for you!",
+                    label = "Hey, I also write funny things, you know? ;-)",
                     class="btn btn-success"))
     ),
     fixedRow(column(6,
-        p( "Words randomly chosen from the top three predictions.",
+        p( "Words are chosen at random from the top three predictions.",
            class="small"))),
-    fixedRow(tags$ul(
-        tags$li(),
-        tags$li(),
-        style="visibility:hidden;")), # vert. spc.
+    fixedRow(column(6, hr() )),
     fixedRow(column(6,
         p( "Requires a modern browser with JavaScript enabled.",
            "Tested under OSX with Safari, Chrome and Firefox.",
@@ -77,7 +73,7 @@ shinyUI(fixedPage(
            class="small")
     )),    
     fixedRow(column(6,
-        p( "Version 1.2",
+        p( "Version 1.3",
           class="small")
     ))
 ))
