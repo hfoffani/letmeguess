@@ -7,6 +7,7 @@ versionado:
     1.2 - con placeholder en textarea.
     1.3 - minor.
     1.4 - presentation.
+    1.5 - just to see what's going with 599: Timeout.
 
 faltan los scripts que generan
     coverage.txt and coverage-2gram.txt
