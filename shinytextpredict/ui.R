@@ -19,7 +19,7 @@ shinyUI(fixedPage(
     
     titlePanel("Let me guess your next word"),
     
-    inputTextarea("userText", "", 8, 45, "Insert some text here..."),
+    inputTextarea("userText", "", 8, 45, "Insert some text here, please..."),
     checkboxInput("profanities", "Show profanity words", TRUE),
     h4("Your next word is:"),
     fixedRow(column(6,
@@ -67,13 +67,13 @@ shinyUI(fixedPage(
     fixedRow(column(6, hr() )),
     fixedRow(column(6,
         p( "Requires a modern browser with JavaScript enabled.",
-           "Tested under OSX with Safari, Chrome and Firefox.",
-           "Under Windows 2000 with IE 11.",
-           "Also works with iOS Safari.",
+           "Tested under OSX with Safari, Chrome and Firefox;",
+           "also Windows 8.1 with IE 11.",
+           "Works with iOS Safari.",
            class="small")
     )),    
     fixedRow(column(6,
-        p( "Version 1.3",
+        p( "Version 1.4",
           class="small")
     ))
 ))
