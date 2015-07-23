@@ -66,6 +66,13 @@ ecrive.net:
 Jul 23, 2015 5:54:43 PM GMT - timestamp.txt
 QhrUxSTvu+AweLVxmcAOElonOfZk4xFAWNWWmAMa+/c=
 
+www.proofofexistence.com
+Jul 23th, 2015. 20:00 aprox - timestamp.txt
+hash:
+0c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211
+waiting for confirmation thru paymium
+
+
 
 # author:
 
