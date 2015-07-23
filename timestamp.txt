@@ -1,0 +1,17 @@
+for ecrive.net
+two last commits.
+hash will go to README.md
+DO NOT MODIFY THIS CONTENT
+
+commit 8afaee8448803531d5b6c53dada3d2c524807f66
+Author: Hernan Foffani <hfoffani@gmail.com>
+Date:   Thu Jul 23 19:22:28 2015 +0200
+
+    btproof commit hash.
+
+commit d43aa820dd1ed7ebe0bfa673d18c706a9e0def6d
+Author: Hernan Foffani <hfoffani@gmail.com>
+Date:   Thu Jul 23 19:14:28 2015 +0200
+
+    authentication
+
