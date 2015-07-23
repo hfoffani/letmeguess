@@ -53,4 +53,13 @@ open either server.R or ui.R
 then click on run app
 
 
-BTproof: 1AZSUBcy8D9r67KGYHjgDuSZtnWuYWxDdm
+# Authentications
+
+1st. BTproof: 1AZSUBcy8D9r67KGYHjgDuSZtnWuYWxDdm
+irrecoverable
+
+
+# author:
+
+Hernán Martínez-Foffani  DNI 53937903M (Spain)
+
