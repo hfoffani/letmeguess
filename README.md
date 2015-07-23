@@ -68,10 +68,12 @@ QhrUxSTvu+AweLVxmcAOElonOfZk4xFAWNWWmAMa+/c=
 
 www.proofofexistence.com
 Jul 23th, 2015. 20:00 aprox - timestamp.txt
-hash:
+hash: shasum -a 256 timestamp.txt
 0c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211
 waiting for confirmation thru paymium
-
+http://www.proofofexistence.com/detail/0c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211
+check with:
+curl -k -d d=0c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211 http://www.proofofexistence.com/api/v1/status
 
 
 # author:
