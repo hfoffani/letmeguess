@@ -51,3 +51,6 @@ the run:
 open the project under shinytextpredict
 open either server.R or ui.R
 then click on run app
+
+
+BTproof: 1AZSUBcy8D9r67KGYHjgDuSZtnWuYWxDdm
