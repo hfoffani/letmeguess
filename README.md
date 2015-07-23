@@ -58,6 +58,10 @@ then click on run app
 1st. BTproof: 1AZSUBcy8D9r67KGYHjgDuSZtnWuYWxDdm
 irrecoverable
 
+2nd. BTProof: 18TdkvQ8ojaDfe5i4v7i1HbdjJgNQDthjw
+previous commit date: July 23th, 2015. 19:20
+hash d43aa820dd1ed7ebe0bfa673d18c706a9e0def6d
+
 
 # author:
 
