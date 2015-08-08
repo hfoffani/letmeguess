@@ -5,6 +5,7 @@ data/*.txt
 data/*.csv
 data/temp*/*.txt
 benchmark/datax.zip
+benchmark/data/*
 test.html
 textprediction.html
 README.html
