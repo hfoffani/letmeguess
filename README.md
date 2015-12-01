@@ -52,6 +52,7 @@ Tool: ncompress.py
 ### Running the app locally.
 
 Within RStudio:
+
 . open the project under shinytextpredict
 . open either server.R or ui.R
 . then click on run app
@@ -94,12 +95,14 @@ QhrUxSTvu+AweLVxmcAOElonOfZk4xFAWNWWmAMa+/c=
 www.proofofexistence.com
 Jul 23th, 2015. 20:00 aprox - timestamp.txt
 hash:
+
     shasum -a 256 timestamp.txt
     c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211
     "status": "confirmed", "transaction": "ee380ca171e169f04c07ff4d57fec83007c0f3347188c5ab2d919b24d6c5be68", "txstamp": "2015-07-23 21:26:03", "success": true}
 
 http://www.proofofexistence.com/detail/0c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211
 check with:
+
     curl -k -d d=0c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211 http://www.proofofexistence.com/api/v1/status
 
 
