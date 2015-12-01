@@ -8,18 +8,10 @@ A working app in https://herchu.shinyapps.io/shinytextpredict
 Web app hosted in [shinyapps.io](http://shinyapps.io) (developed in R)
 
 
-### Description
 
-
-### How it works
+### Internals
 
 4-gram Model with Linear Interpolation Smoothing
-
-$$ \begin{align*}
-P(w_n|w_{n-1},\dotsc,w_{n-3}) = & \lambda_0 P(w_n) +
-\lambda_1 P(w_n|w_{n-1}) + \dotsc + \\
-& \lambda_3 P(w_n|w_{n-1},\dotsc,w_{n-3})
-\end{align*} $$
 
 *30,000* words dictionary, unigram to tetagram tables.
 2-3-4-grams have *1 million* entries each
@@ -44,7 +36,7 @@ didn't get better results.
 
 
 
-### pre-process
+### Pre-process
 
 Add UTF-8 BOM and change to unix line endings.
 
@@ -55,17 +47,21 @@ Uses: towords.sh, sample.sh, ngram.sh
 Obtain the frequencies of all the ngrams files.
 Tool: freq.sh
 
-
-
-### transforms to csv
-
 Compress the sets by reducing to the X most popular words
 and to Y[n] most popular n-grams and coding the words in binary.
 Tool: ncompress.py
 
 
 
-### this project
+### Running the app locally.
+
+Within RStudio:
+open the project under shinytextpredict
+open either server.R or ui.R
+then click on run app
+
+
+### Other tests
 
 source testalgo.R
 then run:
@@ -88,19 +84,9 @@ the run:
     shine(tmp)
 
 
-# running the app.
+### Authentications
 
-open the project under shinytextpredict
-open either server.R or ui.R
-then click on run app
-
-
-# Authentications
-
-1st. BTproof: 1AZSUBcy8D9r67KGYHjgDuSZtnWuYWxDdm
-irrecoverable
-
-2nd. BTProof: 18TdkvQ8ojaDfe5i4v7i1HbdjJgNQDthjw
+BTProof: 18TdkvQ8ojaDfe5i4v7i1HbdjJgNQDthjw
 previous commit date: July 23th, 2015. 19:20
 in bitcoin chain since: Ago 20th, 2015. 18:24:22 GMT+0200 (CEST)
 hash del commit: d43aa820dd1ed7ebe0bfa673d18c706a9e0def6d
@@ -119,7 +105,4 @@ check with:
 curl -k -d d=0c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211 http://www.proofofexistence.com/api/v1/status
 
 
-# author:
-
-Hernán Martínez-Foffani  DNI 53937903M (Spain)
 
