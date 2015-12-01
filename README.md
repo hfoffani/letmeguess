@@ -53,9 +53,9 @@ Tool: ncompress.py
 
 Within RStudio:
 
-. open the project under shinytextpredict
-. open either server.R or ui.R
-. then click on run app
+* open the project under shinytextpredict
+* open either server.R or ui.R
+* then click on run app
 
 
 ### Other tests
