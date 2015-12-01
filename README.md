@@ -19,20 +19,16 @@ Web app hosted in [shinyapps.io](http://shinyapps.io) (developed in R)
 
 n-grams tuples include begin-of-sentence tokens.
 
-Achieves ~~16% accuracy~~ for the first word and ~~26%~~
+Achieves *16% accuracy* for the first word and *26%*
 within the best three. *Independently scored by
 [benchmark.R](https://github.com/jan-san/dsci-benchmark)*
 
 Words in the ngram tables are integer coded: less char strings
-results in a ~~50MB~~ total memory footprint.
+results in a *50MB* total memory footprint.
 
-One line in R (~~fast!~~) gets the most probable next word:
+One line in R (*fast!*) gets the most probable next word:
 
     head(order(rowSums(sweep(ngrams,2,weights,`*`)),decreasing=T),n=1)
-
-Weights $(\lambda_0,\lambda_1,\lambda_2,\lambda_3)$ were eyeballed.
-Optimization ([COBYLA](http://en.wikipedia.org/wiki/COBYLA))
-didn't get better results.
 
 
 
