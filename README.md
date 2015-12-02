@@ -106,4 +106,9 @@ check with:
     curl -k -d d=0c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211 http://www.proofofexistence.com/api/v1/status
 
 
+### Who do I talk to? ###
+
+For questions or requests post an issue here or tweet me at
+[@herchu](http://twitter.com/herchu)
+
 
