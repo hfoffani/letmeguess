@@ -1,5 +1,8 @@
 name: shinytextpredict
 account: herchu
-bundleId: 173568
-url: http://herchu.shinyapps.io/shinytextpredict
 server: shinyapps.io
+bundleId: 325568
+url: https://herchu.shinyapps.io/shinytextpredict
+when: 1449424385.78852
+asMultiple: FALSE
+asStatic: FALSE
