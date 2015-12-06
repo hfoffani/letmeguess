@@ -2,3 +2,4 @@ name: shinytextpredict
 account: herchu
 bundleId: 173568
 url: http://herchu.shinyapps.io/shinytextpredict
+server: shinyapps.io
