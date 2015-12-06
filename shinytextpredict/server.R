@@ -1,8 +1,6 @@
 
 library(shiny)
 
-# source("simpsons.R")
-# fpredict <- simpsons.predict
 source("helper.R")
 fpredict <- text.predict
 
