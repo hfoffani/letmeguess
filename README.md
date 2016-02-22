@@ -31,6 +31,12 @@ One line in R (*fast!*) gets the most probable next word:
     head(order(rowSums(sweep(ngrams,2,weights,`*`)),decreasing=T),n=1)
 
 
+### Training Data Set ###
+
+The dataset comes from [HC Corpora](www.corpora.heliohost.org).
+Details [here](http://www.corpora.heliohost.org/aboutcorpus.html).
+It be downloaded [here] (https://d396qusza40orc.cloudfront.net/dsscapstone/dataset/Coursera-SwiftKey.zip).
+
 
 ### Pre-process
 
@@ -105,5 +111,10 @@ check with:
 
     curl -k -d d=0c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211 http://www.proofofexistence.com/api/v1/status
 
+
+### Who do I talk to? ###
+
+For questions or requests post an issue here or tweet me at
+[@herchu](http://twitter.com/herchu)
 
 

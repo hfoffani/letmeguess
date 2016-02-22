@@ -1,6 +1,7 @@
 .Rproj.user
 .Rhistory
 .DS_Store
+.RData
 data/*.txt
 data/*.csv
 data/temp*/*.txt

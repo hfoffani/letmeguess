@@ -1,7 +1,8 @@
-Title: Let me guess your next word
+Title: Let Me Guess!
 Author: Hernán Foffani
 AuthorUrl: http://github.com/hfoffani
-License: GPL-3
+License: Apache License
 DisplayMode: Showcase
-Tags: text prediction nlp natural language processing
+Tags: nlp bag-of-words n-grams predict
 Type: Shiny
+
