@@ -1,10 +1,14 @@
 
 library(shiny)
 
-# source("private/simpsons.R")
-# fpredict <- simpsons.predict
+# core predictor functions not published.
+# contact me if you want details or source code.
 source("private/helper.R")
 fpredict <- text.predict
+
+# dummy predictor for testing UI
+# source("private/simpsons.R")
+# fpredict <- simpsons.predict
 
 shinyServer(function(input, output, session) {
   
