@@ -3,6 +3,6 @@ Author: Hernán Foffani
 AuthorUrl: http://github.com/hfoffani
 License: Apache License
 DisplayMode: Showcase
-Tags: nlp bag-of-words n-grams predict
+Tags: nlp bag-of-words n-grams predict natural language processing
 Type: Shiny
 
