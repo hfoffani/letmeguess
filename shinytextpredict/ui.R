@@ -73,7 +73,7 @@ shinyUI(fixedPage(
            class="small")
     )),    
     fixedRow(column(6,
-        p( "Version 1.5",
+        p( "Version 1.6",
           class="small")
     ))
 ))

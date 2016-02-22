@@ -1,9 +1,9 @@
 
 library(shiny)
 
-# source("simpsons.R")
+# source("private/simpsons.R")
 # fpredict <- simpsons.predict
-source("helper.R")
+source("private/helper.R")
 fpredict <- text.predict
 
 shinyServer(function(input, output, session) {
