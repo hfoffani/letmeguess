@@ -89,27 +89,32 @@ the run:
 
 ### Authentications
 
-BTProof: 18TdkvQ8ojaDfe5i4v7i1HbdjJgNQDthjw
-previous commit date: July 23th, 2015. 19:20
-in bitcoin chain since: Ago 20th, 2015. 18:24:22 GMT+0200 (CEST)
-hash del commit: d43aa820dd1ed7ebe0bfa673d18c706a9e0def6d
+#### BTProof ####
 
-ecrive.net:
-Jul 23, 2015 5:54:43 PM GMT - timestamp.txt
-QhrUxSTvu+AweLVxmcAOElonOfZk4xFAWNWWmAMa+/c=
+    18TdkvQ8ojaDfe5i4v7i1HbdjJgNQDthjw
+    previous commit date: July 23th, 2015. 19:20 in bitcoin chain since: Ago 20th, 2015. 18:24:22 GMT+0200 (CEST)
+    commit hash: d43aa820dd1ed7ebe0bfa673d18c706a9e0def6d
 
-www.proofofexistence.com
-Jul 23th, 2015. 20:00 aprox - timestamp.txt
+#### ecrive.net  ####
+
+    Jul 23, 2015 5:54:43 PM GMT - timestamp.txt
+    QhrUxSTvu+AweLVxmcAOElonOfZk4xFAWNWWmAMa+/c=
+
+#### proofofexistence.com  ####
+
+    Jul 23th, 2015. 20:00 aprox - timestamp.txt
 hash:
 
     shasum -a 256 timestamp.txt
     c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211
     "status": "confirmed", "transaction": "ee380ca171e169f04c07ff4d57fec83007c0f3347188c5ab2d919b24d6c5be68", "txstamp": "2015-07-23 21:26:03", "success": true}
 
-http://www.proofofexistence.com/detail/0c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211
 check with:
+  http://www.proofofexistence.com/detail/0c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211
+or
 
     curl -k -d d=0c6dadd9c3bfedc81f521a550014c0d7910fb1483a0a16f5d5c525c0d8d24211 http://www.proofofexistence.com/api/v1/status
+
 
 
 ### Who do I talk to? ###
