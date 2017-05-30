@@ -89,18 +89,18 @@ the run:
 
 ### Authentications
 
-** BTProof **
+**BTProof**
 
     18TdkvQ8ojaDfe5i4v7i1HbdjJgNQDthjw
     previous commit date: July 23th, 2015. 19:20 in bitcoin chain since: Ago 20th, 2015. 18:24:22 GMT+0200 (CEST)
     commit hash: d43aa820dd1ed7ebe0bfa673d18c706a9e0def6d
 
-** ecrive.net  **
+**ecrive.net**
 
     Jul 23, 2015 5:54:43 PM GMT - timestamp.txt
     QhrUxSTvu+AweLVxmcAOElonOfZk4xFAWNWWmAMa+/c=
 
-** proofofexistence.com  **
+**proofofexistence.com**
 
     Jul 23th, 2015. 20:00 aprox - timestamp.txt
 hash:
